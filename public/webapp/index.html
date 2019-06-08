@@ -13,6 +13,9 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
   <style>
+  body{
+    position: relative;
+  }
   .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -32,7 +35,7 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="navbar-example">
     <a class="navbar-brand" href="#">RijksCrowd</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -40,8 +43,8 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="#introduction">Introduction</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#meet">Meet RijksCrowd</a>
@@ -66,7 +69,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="introduction">
       <!-- Example row of columns -->
       <div class="row entry featurette">
         <div class="offset-1 col-md-10 text-center">
@@ -247,6 +250,7 @@
 
   <!-- Javascript -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/rijkscrowd.js"></script>
 
 
 </body>
