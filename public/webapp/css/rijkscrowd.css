@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding-top: 3.5rem;
 }
