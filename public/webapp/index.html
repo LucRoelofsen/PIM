@@ -6,9 +6,10 @@
   <meta name="description" content="">
   <title>Jumbotron Template · Bootstrap</title>
 
-  <!-- Bootstrap core CSS -->
+  <!-- Bootstrap core and custom CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/rijkscrowd.css" rel="stylesheet">
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
   <style>
@@ -43,18 +44,10 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#meet">Meet RijksCrowd</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          <a class="nav-link" href="#faq">Frequently Asked Questions</a>
         </li>
       </ul>
       <span class="navbar-text">
@@ -98,16 +91,16 @@
         </div>
       </div>
 
-      <hr class="featurette-divider">
+      <hr id="meet" class="featurette-divider">
 
       <div class="offset-1 col-md-10 text-center">
-        <h2 class="featurette-heading pb-5">Meet RijksCrowd</h2>
+        <h2 class="featurette-heading">Meet RijksCrowd</h2>
       </div>
 
       <div class="row entry featurette pb-5">
         <div class="col-md-7">
-          <h2 class="featurette-heading">A new way to go digital. <span class="text-rijks">It’ll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">Crowdsourcing. <span class="text-rijks">It’ll blow your mind.</span></h2>
+          <p class="lead">The Rijksmuseum needs your help with digitizing physical documents. With only a limited amount of resources, this process will take a lot of time. By using crowdsourcing, everyone can contribute to this process.</p>
         </div>
         <div class="col-md-5">
           <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
@@ -116,8 +109,8 @@
 
       <div class="row featurette pb-5">
         <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading">Help us transcribe documents. <span class="text-rijks">It’ll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">Going digital. <span class="text-rijks">Powered by crowdsourcing.</span></h2>
+          <p class="lead">Helping the Rijksmuseum is simple. Once you have registered, you will be shown photos or scans of documents which need to be digitized. Simply write what you see in the input form and submit your transcription.</p>
         </div>
         <div class="col-md-5 order-md-1">
           <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
@@ -134,7 +127,7 @@
         </div>
       </div>
 
-      <hr class="featurette-divider">
+      <hr id="faq" class="featurette-divider">
 
       <div class="offset-1 col-md-10 text-center">
         <h2 class="featurette-heading pb-5">Frequently Asked Questions</h2>
@@ -156,7 +149,7 @@
                 </h5>
               </div>
 
-              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                   <p>Answer</p>
                 </div>
@@ -204,7 +197,7 @@
                 </h5>
               </div>
 
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion2">
+              <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion2">
                 <div class="card-body">
                   <p>Answer</p>
                 </div>
@@ -249,11 +242,12 @@
   </main>
 
   <footer class="container">
-    <p class="lead">RijksCrowd</p>
+    <p class="lead pb-5">RijksCrowd © 2019. All rights reserved.</p>
   </footer>
 
   <!-- Javascript -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
+
 
 </body>
 </html>
