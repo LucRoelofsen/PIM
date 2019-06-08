@@ -9,6 +9,7 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/rijkscrowd.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
   <style>
   .bd-placeholder-img {
@@ -145,7 +146,7 @@
         </div>
         <div class="col-md-4">
           <h5>Category I</h5>
-          <div id="accordion">
+          <div class="accordion" id="accordion">
             <div class="card">
               <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
@@ -155,9 +156,9 @@
                 </h5>
               </div>
 
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
-                  Answer
+                  <p>Answer</p>
                 </div>
               </div>
             </div>
@@ -171,7 +172,7 @@
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                  Answer
+                  <p>Answer</p>
                 </div>
               </div>
             </div>
@@ -185,7 +186,7 @@
               </div>
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
-                  Answer
+                  <p>Answer</p>
                 </div>
               </div>
             </div>
@@ -193,47 +194,47 @@
         </div>
         <div class="col-md-4">
           <h5>Category II</h5>
-          <div id="accordion">
+          <div class="accordion" id="accordion2">
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <div class="card-header" id="headingFour">
                 <h5 class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                     Another random question
                   </button>
                 </h5>
               </div>
 
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion2">
                 <div class="card-body">
-                  Answer
+                  <p>Answer</p>
                 </div>
               </div>
             </div>
             <div class="card">
-              <div class="card-header" id="headingTwo">
+              <div class="card-header" id="headingFive">
                 <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                     Another random question
                   </button>
                 </h5>
               </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion2">
                 <div class="card-body">
-                  Answer
+                  <p>Answer<p>
                 </div>
               </div>
             </div>
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingSix">
                 <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                     Another random question
                   </button>
                 </h5>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion2">
                 <div class="card-body">
-                  Answer
+                  <p>Answer</p>
                 </div>
               </div>
             </div>
