@@ -5,6 +5,7 @@ html {
 }
 
 body {
+  position: relative;
   padding-top: 3.5rem;
 }
 
@@ -45,7 +46,7 @@ h2 {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* BUTTONS
+/* RIJKS ELEMENTS
 -------------------------------------------------- */
 
 .btn-rijks {
@@ -58,6 +59,18 @@ h2 {
   color: #d55140;
   background-color: transparent;
   border-color: #d55140;
+}
+
+.badge-rijks {
+  color: #fff;
+  background-color: #d55140;
+}
+
+/* DASHBOARD ITEMS
+-------------------------------------------------- */
+
+.stats-card h3 {
+  font-size: 3rem;
 }
 
 
