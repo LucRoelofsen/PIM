@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap');
+
+body {
+  padding-top: 3.5rem;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif
+}
+
+.bg-dark {
+  background-color: black;
+}
+
+.landing {
+  background: url(../img/background.jpg);
+  background-position: 50% 43%;
+  background-size: cover;
+  padding: 7rem;
+  border-radius: 0;
+}
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1.2em;
+  letter-spacing: 0.02em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* BUTTONS
+-------------------------------------------------- */
+
+.btn-rijks {
+  color: #fff;
+  background-color: #d55140;
+  border-color: #d55140;
+}
+
+.btn-rijks:hover {
+  color: #d55140;
+  background-color: white;
+  border-color: #d55140;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  .featurette-heading {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
