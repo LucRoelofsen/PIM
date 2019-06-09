@@ -77,14 +77,13 @@ h2, h3 {
   background-position: 50% 43%;
   background-attachment: fixed;
   background-size: cover;
-  padding: 7rem;
+  /* padding: 7rem; */
 }
 
 .form-signin {
   position: relative;
   top: 30px;
   width: 100%;
-  max-width: 400px;
   padding: 60px;
   margin: auto;
   background-color: #ffffff;
