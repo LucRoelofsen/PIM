@@ -78,11 +78,77 @@ h2 {
 	z-index: 1030
 }
 
+/* AUTHENTICATION SCREEN COMPONENTS
+-------------------------------------------------- */
+.auth {
+  background: url(../img/background.jpg);
+  background-position: 50% 43%;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 7rem;
+  border-radius: 0;
+}
+
+.textsignin {
+  text-align: center;
+}
+
+.form-signin {
+  position: relative;
+  top: 30px;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  background-color: #efefef
+
+}
+
+.formfont {
+  font-family: 'Montserrat', sans-serif;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+.checkbox {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px
+}
+.buttonsignin {
+  color: white;
+  background-color: #d55140;
+  font-size: 17px
+}
+
 /* DASHBOARD ITEMS
 -------------------------------------------------- */
 
 .stats-card h3 {
   font-size: 3rem;
+}
+
+
+/* TRANSCRIBE ITEMS
+-------------------------------------------------- */
+
+.transcribe-preview {
+  /* position: absolute; */
+  min-height: 100%;
+  height: 100vh;
+  background-image: url('https://peterlasker.nl/afbeeldingen/documenten/bron/burgerlijke%20stand/geboorte/tuuk%20van%20der%20koenraad%20groningen%20bs-g%20onstwedde%201882%2027.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: whitesmoke;
+  background-size: contain;
 }
 
 
