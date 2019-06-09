@@ -82,8 +82,7 @@ h2, h3 {
 
 .form-signin {
   position: relative;
-  top: 30px;
-  width: 100%;
+  top: 5em;
   padding: 60px;
   margin: auto;
   background-color: #ffffff;
@@ -183,7 +182,7 @@ h2, h3 {
 }
 @media (min-width:768px) {
 	.navbar.fixed-left {
-    right: auto
+    right: auto;
 		bottom: 0;
 		width: 232px;
 		flex-flow: column nowrap;
