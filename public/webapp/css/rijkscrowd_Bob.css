@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap');
 
-body {
+.bodyindex {
   padding-top: 3.5rem;
 }
 
@@ -58,20 +58,32 @@ h2 {
 
 /* Loginscreen
 -------------------------------------------------- */
-.backgroundimage {
-  background-color: coral;
+.bodybackgroundimage {
+  background: url(../img/background.jpg);
+  background-position: 50% 43%;
+  background-size: cover;
+  padding: 7rem;
+  border-radius: 0;
 }
+
 .textsignin {
   text-align: center;
 }
 
 .form-signin {
+  position: relative;
+  top: 30px;
   width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
+  background-color: #efefef
+
 }
 
+.formfont {
+  font-family: 'Montserrat', sans-serif;
+}
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
@@ -83,12 +95,15 @@ h2 {
   border-top-right-radius: 0;
 }
 
-.registration {
-  font-family: 'Montserrat', sans-serif
+
+.checkbox {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px
 }
 .buttonsignin {
   color: white;
   background-color: #d55140;
+  font-size: 17px
 }
 /* RESPONSIVE CSS
 -------------------------------------------------- */
