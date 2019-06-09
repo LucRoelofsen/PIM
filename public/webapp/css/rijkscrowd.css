@@ -6,7 +6,10 @@ html {
 
 body {
   position: relative;
-  /* padding-top: 3.5rem; */
+  padding-top: 3.5rem;
+}
+
+.dashboard {
   padding-top: 90px;
 }
 
@@ -138,7 +141,7 @@ h2 {
 	}
 }
 @media (min-width:768px) {
-	body {
+	.dashboard {
 		padding-top: 0;
     margin-left: 232px;
 	}
