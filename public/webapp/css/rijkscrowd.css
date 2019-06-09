@@ -13,7 +13,7 @@ body {
   padding-top: 90px;
 }
 
-h2 {
+h2, h3 {
   font-family: 'Montserrat', sans-serif
 }
 
@@ -70,14 +70,6 @@ h2 {
   background-color: #d55140;
 }
 
-.navbar.fixed-left {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 1030
-}
-
 /* AUTHENTICATION SCREEN COMPONENTS
 -------------------------------------------------- */
 .auth {
@@ -89,22 +81,18 @@ h2 {
   border-radius: 0;
 }
 
-.textsignin {
-  text-align: center;
-}
-
 .form-signin {
   position: relative;
   top: 30px;
   width: 100%;
-  max-width: 330px;
-  padding: 15px;
+  max-width: 400px;
+  padding: 60px;
   margin: auto;
-  background-color: #efefef
-
+  background-color: #ffffff;
+  border-top: 2px solid #d55140;
 }
 
-.formfont {
+.btn-font {
   font-family: 'Montserrat', sans-serif;
 }
 .form-signin input[type="email"] {
@@ -118,19 +106,21 @@ h2 {
   border-top-right-radius: 0;
 }
 
-
 .checkbox {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px
 }
-.buttonsignin {
-  color: white;
-  background-color: #d55140;
-  font-size: 17px
-}
 
 /* DASHBOARD ITEMS
 -------------------------------------------------- */
+
+.navbar.fixed-left {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1030
+}
 
 .stats-card h3 {
   font-size: 3rem;
@@ -141,7 +131,6 @@ h2 {
 -------------------------------------------------- */
 
 .transcribe-preview {
-  /* position: absolute; */
   min-height: 100%;
   height: 100vh;
   background-image: url('https://peterlasker.nl/afbeeldingen/documenten/bron/burgerlijke%20stand/geboorte/tuuk%20van%20der%20koenraad%20groningen%20bs-g%20onstwedde%201882%2027.jpg');
@@ -168,9 +157,6 @@ h2 {
 }
 
 @media (min-width:768px) {
-	.navbar.fixed-left {
-		right: auto
-	}
 	.navbar.fixed-left .navbar-nav .nav-item .dropdown-toggle:after {
 		border-top: .3em solid transparent;
 		border-left: .3em solid;
@@ -184,6 +170,7 @@ h2 {
 }
 @media (min-width:768px) {
 	.navbar.fixed-left {
+    right: auto
 		bottom: 0;
 		width: 232px;
 		flex-flow: column nowrap;
