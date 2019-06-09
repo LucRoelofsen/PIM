@@ -78,7 +78,6 @@ h2, h3 {
   background-attachment: fixed;
   background-size: cover;
   padding: 7rem;
-  border-radius: 0;
 }
 
 .form-signin {
@@ -95,20 +94,35 @@ h2, h3 {
 .btn-font {
   font-family: 'Montserrat', sans-serif;
 }
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+
+.form-signin input {
+  padding: 1.5em;
 }
+
+.form-signin input:focus {
+  border: 1px solid #d55140;
+  outline: none;
+  box-shadow: none;
+}
+
 .form-signin input[type="password"] {
   margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
 .checkbox {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #d55140;
+  background-color: #d55140;
+}
+
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+  color: #fff;
+  background-color: #ffb5ab;
+  border-color: #ffb5ab;
 }
 
 /* DASHBOARD ITEMS
