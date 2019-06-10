@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap');
+
+body {
+  padding-top: 3.5rem;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif
+}
+
+.text-rijks {
+  color: #d55140 !important;
+}
+
+.bg-dark {
+  background-color: black;
+}
+
+.landing {
+  background: url(../img/background.jpg);
+  background-position: 50% 43%;
+  background-size: cover;
+  padding: 7rem;
+  border-radius: 0;
+}
+
+.entry {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1.2em;
+  letter-spacing: 0.02em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* BUTTONS
+-------------------------------------------------- */
+
+.btn-rijks {
+  color: #fff;
+  background-color: #d55140;
+  border-color: #d55140;
+}
+
+.btn-rijks:hover {
+  color: #d55140;
+  background-color: transparent;
+  border-color: #d55140;
+}
+
+/* Loginscreen
+-------------------------------------------------- */
+.backgroundimage {
+  background-color: coral;
+}
+.textsignin {
+  text-align: center;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.registration {
+  font-family: 'Montserrat', sans-serif
+}
+.buttonsignin {
+  color: white;
+  background-color: #d55140;
+}
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  .featurette-heading {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
