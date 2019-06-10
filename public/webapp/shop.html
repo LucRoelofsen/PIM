@@ -12,6 +12,30 @@
   <link href="css/feather-icons.css" rel="stylesheet">
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <style>
+    .card-body-shop{
+      padding-left: 0;
+    }
+    .card-shop{
+      border: none;
+    }
+    .shop-text{
+      font-size: 1.3rem;
+    }
+    .icon-shop{
+      padding:0;
+    }
+    .button-shop{
+      width: 100%;
+    }
+    .fe-shopping-cart{
+      font-size: 25px;
+    }
+    .image-shop{
+      width: 100%;
+      background-color: gray;
+    }
+  </style>
 </head>
 
 <body class="dashboard">
@@ -48,221 +72,88 @@
 
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row entry">
-        <div class="col-md-5">
-          <h3>My dashboard</h3>
-        </div>
-        <div class="col-md-3">
-          <div class="card stats-card">
-            <div class="card-body">
-              <h3 class="d-inline"><i class="icon-placeholder fe fe-clipboard"></i> 5</h3><p class="lead d-inline"> projects</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card stats-card">
-            <div class="card-body">
-              <h3 class="d-inline"><i class="icon-placeholder fe fe-disc"></i> 1500</h3><p class="lead d-inline">/1750 coins</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-
-            <div class="card-header">
-              <h5 class="card-title">Available projects</h5>
-            </div>
-
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>Project #15326</div>
-                  <div class="text-muted">
-                    Published 12 days ago
-                  </div>
-                </div>
-                <div class="ml-auto">
-                  <a href="#" class="btn btn-rijks">Continue project</a>
-                </div>
-              </div>
-            </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>Project #15327</div>
-                  <div class="text-muted">
-                    Published 5 days ago
-                  </div>
-                </div>
-                <div class="ml-auto">
-                  <a href="#" class="btn btn-outline-dark">Start project</a>
-                </div>
-              </div>
-            </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>Project #15328</div>
-                  <div class="text-muted">
-                    Published 5 days ago
-                  </div>
-                </div>
-                <div class="ml-auto">
-                  <a href="#" class="btn btn-outline-dark">Start project</a>
-                </div>
-              </div>
-            </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>Project #15329</div>
-                  <div class="text-muted">
-                    Published yesterday
-                  </div>
-                </div>
-                <div class="ml-auto">
-                  <a href="#" class="btn btn-outline-dark">Start project</a>
-                </div>
-              </div>
-            </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>Project #15330 <span class="badge badge-rijks">New!</span></div>
-                  <div class="text-muted">
-                    Published today
-                  </div>
-                </div>
-                <div class="ml-auto">
-                  <a href="#" class="btn btn-outline-dark">Start project</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="card">
-
-            <div class="card-header">
-              <h5 class="card-title">Recent activity</h5>
-            </div>
-
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>Project #15326 approved <span class="badge badge-rijks">+50 points</span></div>
-                  <div class="text-muted">
-                    Today
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>Project #15326 submitted</div>
-                  <div class="text-muted">
-                    4 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>Project #15326 opened</div>
-                  <div class="text-muted">
-                    4 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>Project #15325 rejected</div>
-                  <div class="text-muted">
-                    6 days ago
-                  </div>
-                </div>
-                <div class="ml-auto">
-                  <a href="#" class="btn btn-outline-dark">Appeal</a>
-                </div>
-              </div>
-            </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
-                <div class="">
-                  <div>More ></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        </div>
-      </div>
 
       <div class="row featurette entry">
         <div class="col-md-12">
           <div class="card-deck">
-          <div class="card">
-            <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">News item #1</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <div class="card card-shop">
+            <img src="img/rijksmuseumshop.jfif" class="card-img-top" alt="...">
+            <div class="card-body card-body-shop row">
+              <div class="col-9">
+                <h5 class=" shop-text">Rijksmuseum shop voucher €5</h5>
+                <p class="card-text shop-text">500 coins</p>
+              </div>
+              <div class="col-3 text-right icon-shop">
+                <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">News item #2</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <div class="card card-shop">
+            <img src="img/rijksmuseumshop.jfif" class="card-img-top" alt="...">
+            <div class="card-body card-body-shop row">
+              <div class="col-9">
+                <h5 class=" shop-text">Rijksmuseum shop voucher €10</h5>
+                <p class="card-text shop-text">950 coins</p>
+              </div>
+              <div class="col-3 text-right icon-shop">
+                <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">News item #3</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <div class="card card-shop">
+            <img src="img/rijksmuseumshop.jfif" class="card-img-top" alt="...">
+            <div class="card-body card-body-shop row">
+              <div class="col-9">
+                <h5 class=" shop-text">Rijksmuseum shop voucher €15</h5>
+                <p class="card-text shop-text">1350 coins</p>
+              </div>
+              <div class="col-3 text-right icon-shop">
+                <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+              </div>
             </div>
           </div>
         </div>
         </div>
       </div>
 
-      <div class="row featurette entry">
+      <div class="row featurette">
         <div class="col-md-12">
           <div class="card-deck">
-          <div class="card">
-            <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">News item #1</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <div class="card card-shop">
+            <img src="img/diningcity.png" class="card-img-top image-shop" alt="dining city logo">
+            <div class="card-body card-body-shop row">
+              <div class="col-9">
+                <h5 class=" shop-text">Restaurant voucher €10</h5>
+                <p class="card-text shop-text">950 coins</p>
+              </div>
+              <div class="col-3 text-right icon-shop">
+                <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">News item #2</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <div class="card card-shop">
+            <img src="img/efteling.png" class="card-img-top image-shop" alt="Efteling logo">
+            <div class="card-body card-body-shop row">
+              <div class="col-9">
+                <h5 class=" shop-text">Efteling voucher €10</h5>
+                <p class="card-text shop-text">950 coins</p>
+              </div>
+              <div class="col-3 text-right icon-shop">
+                <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">News item #3</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <div class="card card-shop">
+            <img src="img/douglas.png" class="card-img-top image-shop" alt="Douglas logo">
+            <div class="card-body card-body-shop row">
+              <div class="col-9">
+                <h5 class=" shop-text">Douglas Voucher €10</h5>
+                <p class="card-text shop-text">950 coins</p>
+              </div>
+              <div class="col-3 text-right icon-shop">
+                <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+              </div>
             </div>
           </div>
         </div>
