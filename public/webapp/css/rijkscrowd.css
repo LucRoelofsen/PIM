@@ -70,6 +70,11 @@ h2, h3 {
   background-color: #d55140;
 }
 
+.bar-rijks {
+  height: 0.5rem;
+  background-color: #d55140;
+}
+
 /* AUTHENTICATION SCREEN COMPONENTS
 -------------------------------------------------- */
 .auth {
@@ -123,7 +128,7 @@ h2, h3 {
   border-color: #ffb5ab;
 }
 
-/* DASHBOARD ITEMS
+/* DASHBOARD COMPONENTS
 -------------------------------------------------- */
 
 .navbar.fixed-left {
@@ -139,7 +144,7 @@ h2, h3 {
 }
 
 
-/* TRANSCRIBE ITEMS
+/* TRANSCRIBE COMPONENTS
 -------------------------------------------------- */
 
 .transcribe-preview {
@@ -150,6 +155,49 @@ h2, h3 {
   background-repeat: no-repeat;
   background-color: whitesmoke;
   background-size: contain;
+}
+
+.transcribe-form {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.form-transcribe input:focus {
+  border: 1px solid #d55140;
+  outline: none;
+  box-shadow: none;
+}
+
+.progress-small {
+  height: 0.5rem;
+  border-radius: 0;
+}
+
+
+/* SHOP COMPONENTS
+-------------------------------------------------- */
+
+.card-body-shop {
+  padding-left: 0;
+}
+.card-shop {
+  border: none;
+}
+.shop-text {
+  font-size: 1.3rem;
+}
+.icon-shop {
+  padding:0;
+}
+.button-shop {
+  width: 100%;
+}
+.fe-shopping-cart {
+  font-size: 25px;
+}
+.image-shop {
+  width: 100%;
+  background-color: gray;
 }
 
 
