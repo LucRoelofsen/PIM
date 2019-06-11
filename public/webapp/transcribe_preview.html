@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>Transcribe</title>
+
+  <!-- Bootstrap core and custom CSS -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/rijkscrowd.css" rel="stylesheet">
+  <link href="css/feather-icons.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+</head>
+
+<body class="dashboard">
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-left bg-dark">
+    <a class="navbar-brand" href="#">RijksCrowd Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">Home<i class="icon-placeholder fe fe-home float-right"></i></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="transcribe_preview.html">Transcribe<i class="icon-placeholder fe fe-edit float-right"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="settings.html">Settings<i class="icon-placeholder fe fe-settings float-right"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shop.html">Shop<i class="icon-placeholder fe fe-dollar-sign float-right"></i></a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Register</button>
+        <button class="btn btn-rijks my-2 my-sm-0" type="submit">Login</button>
+      </span>
+    </div>
+  </nav>
+
+  <main role="main">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-lg-6 transcribe-preview p-0 my-auto">
+          <img src="https://img.gadgethacks.com/img/34/15/63529709436502/0/scan-multiple-docs-into-one-pdf-your-iphone-with-finescanner-free-for-limited-time.w1456.jpg" class="img-fluid zoom" style="height: 100vh">
+        </div>
+        <div class="col-lg-6 transcribe-form entry">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-md-6">
+                <h3>Project #15326</h3>
+              </div>
+              <div class="col-md-6">
+                <h3>Document 36/100</h3>
+              </div>
+            </div>
+
+            <div class="progress progress-small">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bar-rijks" role="progressbar" style="width:36%" aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <div class="card">
+
+              <div class="list-group list-group-flush ">
+                <div class="list-group-item d-flex align-items-center">
+                  <div class="">
+                    <div>You are now working on <b>Project #15326</b>.</div>
+                    <div class="text-muted">
+                      100 documents / <span class="badge badge-secondary">500 points</span>
+                    </div>
+                  </div>
+                  <div class="ml-auto">
+                    <a href="transcribe.html" class="btn btn-rijks">Start transcribing</a>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group list-group-flush ">
+                <div class="list-group-item d-flex  align-items-center">
+                  <div class="col-md-12">
+                    <div><b>Progress</b></div>
+                    <div class="row">
+                      <div class="col-md-6">Submitted: 36/100<br>Approved: 12 / <span class="badge badge-success">60 points</span></div>
+                      <div class="col-md-6">Rejected: <span class="badge badge-success">0</span><br>Overall accuracy: <span class="badge badge-success">100%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group list-group-flush ">
+                <div class="list-group-item d-flex  align-items-center">
+                  <div class="">
+                    <div><b>Overview</b></div>
+                    <p>
+                      This project contains <b>100</b> documents which need to be transcribed. Per document, you will earn <b>5</b> points.
+                      You will be able to spend your coins when your form has been verified by at least 10 other users. Normally, this will take no longer than 72 hours.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group list-group-flush">
+                <div class="list-group-item d-flex align-items-center">
+                  <div class="">
+                    <div><b>Transcribing</b></div>
+                    <p>
+                      You will be shown a document from our archive which needs to transcribed and a form where you can fill in the data on the document.
+                      Please fill in the form as accurately as possible as you will not be awarded points if there are too many mistakes in your form.
+                      If your overall accuracy drops below 60%, you can no longer continue working on this project.
+                    </p>
+                    <p>Finished? Great! Click on the green button to submit your form and to continue to the next document.</p>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group list-group-flush">
+                <div class="list-group-item d-flex align-items-center">
+                  <div class="">
+                    <div><b>Something wrong?</b></div>
+                    <p>Please let us know if something is wrong with a document by clicking the red button, for example, if the picture is blurry. Our team will fix the document as fast as possible.</p>
+                    <div><button type="button" class="btn btn-danger">Illegible?</button></div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group list-group-flush">
+                <div class="list-group-item d-flex align-items-center">
+                  <div class="">
+                    <div><b>Need a rest?</b></div>
+                    <p>You can take a break at any moment, all your work will still be there the next time you open this project. Don't feel like transcribing a document? Click on the gray button to skip that document for now.</p>
+                    <div><button type="submit" class="btn btn-secondary">Skip</button></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+  </main>
+
+
+  <!-- Javascript -->
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/rijkscrowd.js"></script>
+  <script type="text/javascript" src="js/wheelzoom.js"></script>
+  <script>
+  wheelzoom(document.querySelector('img.zoom'));
+  </script>
+
+</body>
+</html>

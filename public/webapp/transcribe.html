@@ -28,7 +28,7 @@
           <a class="nav-link" href="dashboard.html">Home<i class="icon-placeholder fe fe-home float-right"></i></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="transcribe.html">Transcribe<i class="icon-placeholder fe fe-edit float-right"></i></a>
+          <a class="nav-link" href="transcribe_preview.html">Transcribe<i class="icon-placeholder fe fe-edit float-right"></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="settings.html">Settings<i class="icon-placeholder fe fe-settings float-right"></i></a>
@@ -49,7 +49,8 @@
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-lg-6 transcribe-preview">
+        <div class="col-lg-6 transcribe-preview p-0 my-auto">
+          <img src="https://img.gadgethacks.com/img/34/15/63529709436502/0/scan-multiple-docs-into-one-pdf-your-iphone-with-finescanner-free-for-limited-time.w1456.jpg" class="img-fluid zoom" style="height: 100vh">
         </div>
         <div class="col-lg-6 transcribe-form entry">
           <div class="container">
@@ -162,7 +163,7 @@
                   </div>
                   <div class="form-group row">
                     <div class="col-md-12">
-                      <button type="submit" class="btn btn-secondary">Skip this document</button>
+                      <button type="submit" class="btn btn-secondary">Skip</button>
                       <button type="button" class="btn btn-danger">Illegible?</button>
                       <button type="submit" class="btn btn-success">Submit</button>
                     </div>
@@ -183,6 +184,7 @@
 
   <!-- Javascript -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/rijkscrowd.js"></script>
   <script type="text/javascript" src="js/wheelzoom.js"></script>
 	<script>
 		wheelzoom(document.querySelector('img.zoom'));

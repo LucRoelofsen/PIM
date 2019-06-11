@@ -149,13 +149,7 @@ h2, h3 {
 -------------------------------------------------- */
 
 .transcribe-preview {
-  min-height: 100%;
-  height: 100vh;
-  background-image: url('https://peterlasker.nl/afbeeldingen/documenten/bron/burgerlijke%20stand/geboorte/tuuk%20van%20der%20koenraad%20groningen%20bs-g%20onstwedde%201882%2027.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
   background-color: whitesmoke;
-  background-size: contain;
 }
 
 .transcribe-form {
