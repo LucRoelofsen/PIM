@@ -12,6 +12,7 @@
   <link href="css/feather-icons.css" rel="stylesheet">
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
 </head>
 
 <body class="dashboard">
@@ -28,7 +29,7 @@
           <a class="nav-link" href="dashboard.html">Home<i class="icon-placeholder fe fe-home float-right"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="transcribe_preview.html">Transcribe<i class="icon-placeholder fe fe-edit float-right"></i></a>
+          <a class="nav-link" href="transcribe.html">Transcribe<i class="icon-placeholder fe fe-edit float-right"></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="settings.html">Settings<i class="icon-placeholder fe fe-settings float-right"></i></a>
@@ -63,7 +64,7 @@
                     <p class="card-text shop-text">500 coins</p>
                   </div>
                   <div class="col-3 text-right icon-shop">
-                    <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+                    <button type="button" class="btn btn-rijks my-2 my-sm-0  button-shop" data-toggle="modal" data-target="#shopModal" data-voucher="Rijksmuseumshop" data-price="500" data-value="5"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
                   </div>
                 </div>
               </div>
@@ -78,7 +79,7 @@
                     <p class="card-text shop-text">950 coins</p>
                   </div>
                   <div class="col-3 text-right icon-shop">
-                    <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+                    <button type="button" class="btn btn-rijks my-2 my-sm-0  button-shop" data-toggle="modal" data-target="#shopModal" data-voucher="Rijksmuseumshop" data-price="950" data-value="10"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
                   </div>
                 </div>
               </div>
@@ -93,7 +94,7 @@
                     <p class="card-text shop-text">1350 coins</p>
                   </div>
                   <div class="col-3 text-right icon-shop">
-                    <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+                    <button type="button" class="btn btn-rijks my-2 my-sm-0  button-shop" data-toggle="modal" data-target="#shopModal" data-voucher="Rijksmuseumshop" data-price="1350" data-value="15"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
                   </div>
                 </div>
               </div>
@@ -108,7 +109,7 @@
                     <p class="card-text shop-text">950 coins</p>
                   </div>
                   <div class="col-3 text-right icon-shop">
-                    <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+                    <button type="button" class="btn btn-rijks my-2 my-sm-0  button-shop" data-toggle="modal" data-target="#shopModal" data-voucher="Diningcity" data-price="950" data-value="10"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
                   </div>
                 </div>
               </div>
@@ -123,7 +124,7 @@
                     <p class="card-text shop-text">950 coins</p>
                   </div>
                   <div class="col-3 text-right icon-shop">
-                    <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+                    <button type="button" class="btn btn-rijks my-2 my-sm-0  button-shop" data-toggle="modal" data-target="#shopModal" data-voucher="Efteling" data-price="950" data-value="10"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
                   </div>
                 </div>
               </div>
@@ -138,7 +139,7 @@
                     <p class="card-text shop-text">950 coins</p>
                   </div>
                   <div class="col-3 text-right icon-shop">
-                    <button class="btn btn-rijks my-2 my-sm-0  button-shop" type="submit"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
+                    <button type="button" class="btn btn-rijks my-2 my-sm-0  button-shop" data-toggle="modal" data-target="#shopModal" data-voucher="Douglas" data-price="950" data-value="10"><i class="icon-placeholder fe fe-shopping-cart"></i></button>
                   </div>
                 </div>
               </div>
@@ -147,6 +148,27 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="shopModal" tabindex="-1" role="dialog" aria-labelledby="shopModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="shopModalLabel">New purchase</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" type="text">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <hr class="featurette-divider">
 
@@ -160,7 +182,10 @@
 
   <!-- Javascript -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
+
   <script type="text/javascript" src="js/rijkscrowd.js"></script>
+
+
 
 </body>
 </html>
