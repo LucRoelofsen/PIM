@@ -172,18 +172,13 @@ h2, h3 {
 /* SHOP COMPONENTS
 -------------------------------------------------- */
 
-.card-body-shop {
-  padding-left: 0;
-}
 .card-shop {
   border: none;
 }
 .shop-text {
   font-size: 1.3rem;
 }
-.icon-shop {
-  padding:0;
-}
+
 .button-shop {
   width: 100%;
 }

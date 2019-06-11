@@ -75,7 +75,7 @@ window.wheelzoom = (function(){
 			// Record the offset between the bg edge and cursor:
 			var bgCursorX = offsetX - bgPosX;
 			var bgCursorY = offsetY - bgPosY;
-
+			
 			// Use the previous offset to get the percent offset between the bg edge and cursor:
 			var bgRatioX = bgCursorX/bgWidth;
 			var bgRatioY = bgCursorY/bgHeight;
