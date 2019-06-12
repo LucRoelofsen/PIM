@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <title>Settings</title>
+  <title>Home</title>
 
   <!-- Bootstrap core and custom CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
@@ -24,17 +24,30 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">Home<i class="fe fe-home float-right"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="transcribe_preview.html">Transcribe<i class="fe fe-edit float-right"></i></a>
-        </li>
         <li class="nav-item active">
-          <a class="nav-link" href="settings.html">Settings<i class="fe fe-settings float-right"></i></a>
+          <a class="nav-link" href="#">Home<i class="fe fe-home float-right"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="nav_projects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Projects<i class="fe fe-edit float-right"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="nav_projects">
+            <a class="dropdown-item" href="#">Statistics</a>
+            <a class="dropdown-item" href="#">Manage Projects</a>
+            <a class="dropdown-item" href="#">New Project</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="nav_users" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Users<i class="fe fe-users float-right"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="nav_users">
+            <a class="dropdown-item" href="#">Statistics</a>
+            <a class="dropdown-item" href="#">Manage Users</a>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="shop.html">Shop<i class="fe fe-dollar-sign float-right"></i></a>
+          <a class="nav-link" href="#">Settings<i class="fe fe-settings float-right"></i></a>
         </li>
       </ul>
       <span class="navbar-text">
@@ -48,46 +61,32 @@
 
     <div class="container">
       <!-- Example row of columns -->
-      <div class="card mb-3 profilecard">
-      <div class="row">
-        <div class="col-md-2.5  ">
-              <img src="img/avatar.jpg" alt="avatar" class="avatar">
+      <div class="row entry">
+        <div class="col-md-5">
+          <h3>My dashboard</h3>
+        </div>
+        <div class="col-md-3">
+          <div class="card stats-card">
+            <div class="card-body">
+              <h3 class="d-inline"><i class="fe fe-clipboard"></i> 5</h3><p class="lead d-inline"> projects</p>
+            </div>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="card-body">
-              <h3 class="card-title">My Profile</h3>
-              <p class="btn-font"> Bob Pietersen<br>
-                bobpietersen2110@gmail.com<br>
-              <a href="#">Change email address</a> <br>
-              <a href="#">Change password</a></p>
+          <div class="card stats-card">
+            <div class="card-body">
+              <h3 class="d-inline"><i class="fe fe-arrow-up-right"></i> 1500</h3><p class="lead d-inline"> forms today</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-      <div class="row personalstats">
-      <div class="col-md-6 ">
-        <div class="card stats-card">
-          <div class="card-body">
-            <h3 class="d-inline"><i class="fe fe-clipboard"></i> 5</h3><p class="lead d-inline"> Finished projects</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card stats-card">
-          <div class="card-body">
-            <h3 class="d-inline"><i class="fe fe-disc"></i> 1500</h3><p class="lead d-inline"> Total coin amount</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
       <div class="row">
         <div class="col-md-6">
           <div class="card">
 
             <div class="card-header">
-              <h5 class="card-title">Badges</h5>
+              <h5 class="card-title">Available projects</h5>
             </div>
 
             <div class="list-group list-group-flush ">
@@ -95,7 +94,7 @@
                 <div class="">
                   <div>Project #15326</div>
                   <div class="text-muted">
-                    Published 12 days ago
+                    100 documents / <span class="badge badge-secondary">500 points</span>
                   </div>
                 </div>
                 <div class="ml-auto">
@@ -108,7 +107,7 @@
                 <div class="">
                   <div>Project #15327</div>
                   <div class="text-muted">
-                    Published 5 days ago
+                    50 documents / <span class="badge badge-secondary">250 points</span>
                   </div>
                 </div>
                 <div class="ml-auto">
@@ -121,7 +120,7 @@
                 <div class="">
                   <div>Project #15328</div>
                   <div class="text-muted">
-                    Published 5 days ago
+                    100 documents / <span class="badge badge-secondary">500 points</span>
                   </div>
                 </div>
                 <div class="ml-auto">
@@ -134,7 +133,7 @@
                 <div class="">
                   <div>Project #15329</div>
                   <div class="text-muted">
-                    Published yesterday
+                    200 documents / <span class="badge badge-secondary">1000 points</span>
                   </div>
                 </div>
                 <div class="ml-auto">
@@ -145,9 +144,9 @@
             <div class="list-group list-group-flush ">
               <div class="list-group-item d-flex  align-items-center">
                 <div class="">
-                  <div>Project #15330 <span class="badge badge-rijks">New!</span></div>
+                  <div>Project #15330</div>
                   <div class="text-muted">
-                    Published today
+                    100 documents / <span class="badge badge-secondary">500 points</span>
                   </div>
                 </div>
                 <div class="ml-auto">
@@ -169,7 +168,7 @@
             <div class="list-group list-group-flush ">
               <div class="list-group-item d-flex  align-items-center">
                 <div class="">
-                  <div>Project #15326 approved <span class="badge badge-rijks">+50 points</span></div>
+                  <div>Project #15326 approved <span class="badge badge-success">+500 points</span></div>
                   <div class="text-muted">
                     Today
                   </div>
@@ -213,42 +212,42 @@
               <div class="list-group-item d-flex  align-items-center">
                 <div class="">
                   <div>More ></div>
+                </div>
               </div>
-            </div>
 
+            </div>
           </div>
-        </div>
         </div>
       </div>
 
       <div class="row featurette entry">
         <div class="col-md-12">
           <div class="card-deck">
-          <div class="card">
-            <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">News item #1</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <div class="card">
+              <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">News item #1</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">News item #2</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">News item #3</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">News item #2</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="https://lh3.googleusercontent.com/tTeZ9lscCGMEXHufJbkTFjGnl4ZbiQGo8tm8RUfa6r9fT9A4iVt4Q1Jz1VX4fK-v03Asj6lHn8ZtiotMUPjUY2vPBus=s940" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">News item #3</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
         </div>
       </div>
 
@@ -264,6 +263,7 @@
 
   <!-- Javascript -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="rijkscrowd.js"></script>
 
 
 </body>
