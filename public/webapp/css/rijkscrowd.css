@@ -190,11 +190,11 @@ h2, h3 {
   background-color: gray;
 }
 
-/* Settings
+/* SETTINGS COMPONENTS
 -------------------------------------------------- */
 
 .avatar {
-  margin-left: 30px;
+  margin-left: 50px;
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -209,6 +209,26 @@ h2, h3 {
 
 .personalstats {
   padding-bottom: 1rem
+}
+
+.leftbadge {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.stats-css {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  padding-top: 1.25rem;
+}
+
+.textplacement {
+  margin-left: 20px;
+  text-align: center;
 }
 
 /* RESPONSIVE CSS
