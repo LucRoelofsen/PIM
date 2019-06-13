@@ -24,10 +24,10 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="dashboard.html">Home<i class="fe fe-home float-right"></i></a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" href="#" id="nav_projects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Projects<i class="fe fe-edit float-right"></i>
           </a>
@@ -63,28 +63,20 @@
       <!-- Top content row -->
       <div class="row entry">
         <div class="col-md-5">
-          <h3>My dashboard</h3>
-        </div>
-        <div class="col-md-3">
-          <div class="card stats-card">
-            <div class="card-body">
-              <h3 class="d-inline"><i class="fe fe-clipboard"></i> 5</h3><p class="lead d-inline"> projects</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card stats-card">
-            <div class="card-body">
-              <h3 class="d-inline"><i class="fe fe-arrow-up-right"></i> 1500</h3><p class="lead d-inline"> forms today</p>
-            </div>
-          </div>
+          <h3>New project</h3>
         </div>
       </div>
 
       <!-- Middle row -->
       <div class="row">
         <div class="col-md-6">
-
+          <form class="box" method="post" action="" enctype="multipart/form-data">
+            <div class="box__input">
+              <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+              <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+              <button class="box__button" type="submit">Upload</button>
+            </div>
+          </form>
         </div>
 
         <div class="col-md-6">
