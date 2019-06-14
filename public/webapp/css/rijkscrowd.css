@@ -144,6 +144,13 @@ h2, h3 {
   font-size: 3rem;
 }
 
+.linkcolor {
+  color: black;
+}
+
+.linkcolor:hover {
+  color: black;
+}
 
 /* TRANSCRIBE COMPONENTS
 -------------------------------------------------- */
