@@ -172,7 +172,26 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-              <button type="button" class="btn btn-rijks">Yes</button>
+              <button type="button" class="btn btn-rijks" data-dismiss="modal" data-toggle="modal" data-target="#succesShopModal">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="succesShopModal"tabindex="-1" role="dialog" aria-labelledby="shopModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="shopModalLabel">Your purchase was succesful!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" type="text">
+              The voucher has been sent to test@test.com
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-rijks" data-dismiss="modal">continue</button>
             </div>
           </div>
         </div>
