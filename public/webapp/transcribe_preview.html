@@ -28,7 +28,7 @@
           <a class="nav-link" href="dashboard.html">Home<i class="fe fe-home float-right"></i></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="transcribe_overview.html">Transcribe<i class="fe fe-edit float-right"></i></a>
+          <a class="nav-link" href="transcribe_preview.html">Transcribe<i class="fe fe-edit float-right"></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="profile.html">Profile<i class="fe fe-settings float-right"></i></a>
@@ -43,10 +43,12 @@
     </div>
   </nav>
 
-  <main role="main">
-
-    <div class="container-fluid">
-
+  <main role="main ">
+    <div class="alert alert-danger d-block d-lg-none btn-font sizemessage" role="alert">
+      <h2> Something has gone wrong!</h2>
+      It seems like your screen is too small to transcribe. Switch to a larger screen (preferably monitor size) to continue transcribing.
+    </div>
+    <div class="container-fluid d-none d-lg-block">
       <div class="row">
         <div class="col-lg-6 transcribe-preview p-0 my-auto">
           <img src="http://www.whytes.ie/images/archive/20160313/184_1.jpg" class="img-fluid zoom">
@@ -55,7 +57,7 @@
           <div class="container">
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6 ">
                 <h3>Project #15326</h3>
               </div>
               <div class="col-md-6">

@@ -9,16 +9,20 @@ body {
   padding-top: 3.5rem;
 }
 
-h2, h3 {
-  font-family: 'Montserrat', sans-serif
-}
-
 .dashboard {
   padding-top: 90px;
 }
 
+h2, h3 {
+  font-family: 'Montserrat', sans-serif
+}
+
 .text-rijks {
   color: #d55140 !important;
+}
+
+.bg-dark {
+  background-color: black;
 }
 
 .landing {
@@ -46,15 +50,9 @@ h2, h3 {
   font-family: 'Montserrat', sans-serif;
 }
 
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
-
-
 /* RIJKS ELEMENTS
 -------------------------------------------------- */
+
 .btn-rijks {
   color: #fff;
   background-color: #d55140;
@@ -76,7 +74,6 @@ h2, h3 {
   height: 0.5rem;
   background-color: #d55140;
 }
-
 
 /* AUTHENTICATION SCREEN COMPONENTS
 -------------------------------------------------- */
@@ -132,9 +129,9 @@ h2, h3 {
   border-color: #ffb5ab;
 }
 
-
 /* DASHBOARD COMPONENTS
 -------------------------------------------------- */
+
 .navbar.fixed-left {
 	position: fixed;
 	top: 0;
@@ -155,9 +152,14 @@ h2, h3 {
   color: black;
 }
 
-
 /* TRANSCRIBE COMPONENTS
 -------------------------------------------------- */
+.sizemessage {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px
+}
+
 .transcribe-preview {
   background-color: whitesmoke;
 }
@@ -181,6 +183,7 @@ h2, h3 {
 
 /* SHOP COMPONENTS
 -------------------------------------------------- */
+
 .card-shop {
   border: none;
 }
@@ -199,9 +202,9 @@ h2, h3 {
   background-color: gray;
 }
 
-
 /* SETTINGS COMPONENTS
 -------------------------------------------------- */
+
 .avatar {
   margin-left: 50px;
   width: 150px;
@@ -221,6 +224,14 @@ h2, h3 {
   height: 150px;
   border-radius: 50%;
   margin-top: 20px;
+}
+
+.stats-css {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  padding-top: 1.25rem;
 }
 
 /* ADMIN COMPONENTS
