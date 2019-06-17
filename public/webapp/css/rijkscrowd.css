@@ -52,6 +52,9 @@ h2, h3 {
     object-fit: cover;
 }
 
+.begin {
+  padding-top: 5rem
+}
 
 /* RIJKS ELEMENTS
 -------------------------------------------------- */
@@ -155,7 +158,9 @@ h2, h3 {
   color: black;
 }
 
-
+.statistics {
+  margin-top: 20px
+}
 /* TRANSCRIBE COMPONENTS
 -------------------------------------------------- */
 .sizemessage {
@@ -292,6 +297,13 @@ input[type=file] {
     border-color: #00a8ff;
 }
 
+.projectlinkcolor:hover {
+  color: #d55140;
+}
+
+.projectlinkcolor {
+  color: #d55140;
+}
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

@@ -32,17 +32,12 @@
             Projects<i class="fe fe-edit float-right"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="nav_projects">
-            <a class="dropdown-item" href="#">Manages</a>
+            <a class="dropdown-item" href="manage_projects.html">Manages</a>
             <a class="dropdown-item" href="new_project.html">New Project</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="nav_users" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Users<i class="fe fe-users float-right"></i>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="nav_users">
-            <a class="dropdown-item" href="#">Manage Users</a>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="users.html">Users<i class="fe fe-users float-right"></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Settings<i class="fe fe-settings float-right"></i></a>
@@ -103,7 +98,7 @@
             <div class="list-group list-group-flush ">
               <div class="list-group-item d-flex  align-items-center">
                 <div class="">
-                  <div>Project #15325 <span class="badge badge-success">Complete</span></div>
+                  <div>Project #15325 <span class="badge badge-success">Ready</span></div>
                   <div class="text-muted">
                     100 / 100 docs | 523 users
                   </div>
@@ -222,22 +217,80 @@
           </div>
         </div>
       </div>
+      <div class="row">
+
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">Statistics</h5>
+            </div>
+            <div id="chart_div" style="width:570px; height: 350px"></div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card stats-card">
+            <div class="card-body">
+              <h3 class="d-inline"><i class="fe fe-clipboard"></i> 5</h3><p class="lead d-inline"> projects</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 
 
-      <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-    </div> <!-- /container -->
+  </div> <!-- /container -->
 
-  </main>
+</main>
 
-  <footer class="container">
-    <p class="lead pb-5" style="font-size: 1rem;">RijksCrowd © 2019. All rights reserved.</p>
-  </footer>
+<footer class="container">
+  <p class="lead pb-5" style="font-size: 1rem;">RijksCrowd © 2019. All rights reserved.</p>
+</footer>
 
-  <!-- Javascript -->
-  <script type="text/javascript" src="../js/bootstrap.js"></script>
-  <script type="text/javascript" src="../js/rijkscrowd.js"></script>
+<!-- Javascript -->
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/rijkscrowd.js"></script>
+<script type="text/javascript" src="../js/dashboard.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawCurveTypes);
+
+function drawCurveTypes() {
+  var data = new google.visualization.DataTable();
+  data.addColumn('date', 'Date');
+  data.addColumn('number', 'Docs submitted');
+  data.addColumn('number', 'Reports received');
+
+
+  data.addRows([
+    [new Date(2018, 11, 1), 423, 65],
+    [new Date(2018, 12, 1), 492, 54],
+    [new Date(2019, 1, 1), 546, 52],
+    [new Date(2019, 2, 1), 487, 49],
+    [new Date(2019, 3, 1), 590, 51],
+    [new Date(2019, 4, 1), 542, 45],
+    [new Date(2019, 5, 1), 564, 43],
+
+  ]);
+
+  var options = {
+    hAxis: {
+      title: 'Date'
+    },
+    vAxis: {
+      title: 'Amount'
+    },
+
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+  chart.draw(data, options);
+}
+</script>
 
 
 </body>

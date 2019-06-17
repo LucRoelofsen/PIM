@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>Manage projects</title>
+
+  <!-- Bootstrap core and custom CSS -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href="../css/rijkscrowd.css" rel="stylesheet">
+  <link href="../css/feather-icons.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+</head>
+
+<body class="dashboard">
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-left bg-dark">
+    <a class="navbar-brand" href="#">RijksCrowd Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">Home<i class="fe fe-home float-right"></i></a>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="nav_projects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Projects<i class="fe fe-edit float-right"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="nav_projects">
+            <a class="dropdown-item " href="manage_projects.html">Manages</a>
+            <a class="dropdown-item" href="new_project.html">New Project</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="users.html">Users<i class="fe fe-users float-right"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Settings<i class="fe fe-settings float-right"></i></a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Log out</button>
+      </span>
+    </div>
+  </nav>
+
+  <main role="main">
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row begin">
+        <div class="col-md-4">
+          <h3>Manage projects</h3>
+        </div>
+        <div class="col-md-4">
+          <div class="card stats-card">
+            <div class="card-body">
+              <h3 class="d-inline"><i class="fe fe-clipboard"></i> 1623</h3><p class="lead d-inline">Total projects</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card stats-card">
+            <div class="card-body">
+              <h3 class="d-inline"><i class="fe fe-users"></i> 8</h3><p class="lead d-inline">Currently transcribing</p>
+            </div>
+          </div>
+        </div>
+    <div class="col-md-8">
+      <div class="card statistics">
+
+        <div class="card-header">
+          <h5 class="card-title">Projects</h5>
+        </div>
+        <div>
+          <table class="table table-bordered table-sm ">
+            <tr>
+              <th>Project name</th>
+              <th>Amount of documents</th>
+              <th>Users working on it</th>
+              <th>Percentage completed</th>
+              <th>Go to project</th>
+            </tr>
+            <tr>
+              <td>Project#1129</td>
+              <td>88</td>
+              <td>4</td>
+              <td>68%</td>
+              <td><a href="#" class="projectlinkcolor">View</a></td>
+            </tr>
+            <tr>
+              <td>Project#1237</td>
+              <td>104</td>
+              <td>6</td>
+              <td>54%</td>
+              <td><a href="#" class="projectlinkcolor">View </a></td>
+            </tr>
+          </table>
+        </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card statistics">
+            <div class="card-header">
+              <h5 class="card-title">Illegible documents</h5>
+            </div>
+            <div class="list-group list-group-flush ">
+              <div class="list-group-item d-flex  align-items-center">
+                <div class="">
+                  <div>Project #15325 </div>
+                  <div class="text-muted">
+                    Document #92
+                  </div>
+                </div>
+                <div class="ml-auto">
+                  <a href="#" class="btn btn-rijks">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="list-group list-group-flush ">
+              <div class="list-group-item d-flex align-items-center">
+                <div class="">
+                  <div>Project #15325 </div>
+                  <div class="text-muted">
+                    Document #92
+                  </div>
+                </div>
+                <div class="ml-auto">
+                  <a href="#" class="btn btn-rijks">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="list-group list-group-flush ">
+              <div class="list-group-item d-flex align-items-center">
+                <div class="">
+                  <div>Project #15326 </div>
+                  <div class="text-muted">
+                    Document #34
+                  </div>
+                </div>
+                <div class="ml-auto">
+                  <a href="#" class="btn btn-rijks">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="list-group list-group-flush ">
+              <div class="list-group-item d-flex  align-items-center">
+                <div class="">
+                  <div><a href="#" class="linkcolor">More ></a></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="container">
+    <p class="lead pb-5">RijksCrowd © 2019. All rights reserved.</p>
+  </footer>
+
+  <!-- Javascript -->
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+  <script type="text/javascript" src="../js/rijkscrowd.js"></script>
+
+
+</body>
+</html>
