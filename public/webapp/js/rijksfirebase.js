@@ -13,7 +13,27 @@ var config = {
 };
 
 firebase.initializeApp(config);
+var db = firebase.firestore();
 
+let cityRef = db.collection('projects').doc('1').collection('documents').doc('1');
+let getDoc = cityRef.get()
+
+  .then(doc => {
+    if (!doc.exists) {
+      console.log('No such document!');
+    } else {
+      var data = doc.data();
+      var image = data.image;
+      // $("#submissionImage").append("<img src='" + image + "' class='img-fluid zoom' style='height: 100vh'>");
+      $("#submissionImage").attr("src", image);
+    }
+  })
+  .catch(err => {
+    console.log('Error getting document', err);
+  });
+
+
+// HANDLE SUBMISSIONS
 // Listen for form submit
 document.getElementById("submissionForm").addEventListener("submit", submitForm);
 
