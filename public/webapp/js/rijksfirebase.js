@@ -11,27 +11,23 @@ var config = {
   messagingSenderId: "964929947463",
   appId: "1:964929947463:web:de972dacfdd0ef11"
 };
-
 firebase.initializeApp(config);
 var db = firebase.firestore();
 
-let cityRef = db.collection('projects').doc('1').collection('documents').doc('1');
-let getDoc = cityRef.get()
-
-  .then(doc => {
-    if (!doc.exists) {
-      console.log('No such document!');
-    } else {
-      var data = doc.data();
-      var image = data.image;
-      // $("#submissionImage").append("<img src='" + image + "' class='img-fluid zoom' style='height: 100vh'>");
-      $("#submissionImage").attr("src", image);
-    }
-  })
-  .catch(err => {
-    console.log('Error getting document', err);
-  });
-
+// Get current transcribing progress and show corresponding data
+function indexNumber(){
+  let indexReal = db.collection('projects').doc('1').collection('users').get().then((snapshot) => {
+    var index = snapshot.docs[0].data().progress;
+    let cityRef = db.collection('projects').doc('1').collection('documents').get().then((snapshot) => {
+      var imageURL = snapshot.docs[index].data().image;
+      var docNumber = index + 1;
+      $("#submissionImage").attr("src", imageURL);
+      $("#currentDoc").append("<h3>Document " + docNumber + "/100</h3>");
+      $("#progressBar").css('width', index +"%");
+      });
+    });
+  };
+indexNumber();
 
 // HANDLE SUBMISSIONS
 // Listen for form submit
@@ -47,6 +43,7 @@ function submitForm(e){
 
   // Save submission
   saveSubmission(name, year);
+  updateProgress();
 
   // Clear form
   document.getElementById("submissionForm").reset();
@@ -60,10 +57,37 @@ function getInputVal(id){
 // Save message to firebase
 function saveSubmission(name, year){
 
-  var db = firebase.firestore();
-                                                                                              // Variable user id
   db.collection("projects").doc("1").collection("documents").doc("1").collection("submissions").doc("1").set({
     name:name,
     year:year
   });
 };
+
+// update progress in firebase
+function updateProgress(){
+  let indexReal = db.collection('projects').doc('1').collection('users').get().then((snapshot) => {
+    var index = snapshot.docs[0].data().progress;
+    db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").set({
+    progress: index + 1
+    });
+  });
+};
+
+
+
+// let cityRef = db.collection('projects').doc('1').collection('documents').doc('1');
+// let getDoc = cityRef.get()
+//
+//   .then(doc => {
+//     if (!doc.exists) {
+//       console.log('No such document!');
+//     } else {
+//       var data = doc.data();
+//       var image = data.image;
+//       // $("#submissionImage").append("<img src='" + image + "' class='img-fluid zoom' style='height: 100vh'>");
+//       $("#submissionImage").attr("src", image);
+//     }
+//   })
+//   .catch(err => {
+//     console.log('Error getting document', err);
+//   });
