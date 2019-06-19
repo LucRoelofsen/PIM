@@ -14,18 +14,18 @@ var config = {
 firebase.initializeApp(config);
 var db = firebase.firestore();
 
+window.currentDocPath = [];
+db.collection('projects').doc('1').collection('documents').onSnapshot((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    currentDocPath.push(doc.id);
+  });
+  console.log(currentDocPath[6]);
+});
+
 indexNumber();
 
 // Get current transcribing progress and show corresponding data
 function indexNumber() {
-
-  db.collection('projects').doc('1').collection('documents').onSnapshot((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id); // For doc name
-    });
-  });
-
-
     db.collection('projects').doc('1').collection('users').onSnapshot(function(snapshot) {
       var index = snapshot.docs[0].data().progress;
 
@@ -71,9 +71,8 @@ function indexNumber() {
   // Save message to firebase
   function saveSubmission(title, keywordsubject, keywordperson, doctype, date, author) {
     db.collection('projects').doc('1').collection('users').get().then((snapshot) => {
-      var currentDocRaw = snapshot.docs[0].data().progress + 1;
-      var currentDocPath = "" + currentDocRaw + "";
-      db.collection("projects").doc("1").collection("documents").doc(currentDocPath).collection("submissions").doc("1").set({
+      var currentDocRaw = snapshot.docs[0].data().progress;
+      db.collection("projects").doc("1").collection("documents").doc(currentDocPath[currentDocRaw]).collection("submissions").doc("1").set({
         title: title,
         keywordsubject: keywordsubject,
         keywordperson: keywordperson,
