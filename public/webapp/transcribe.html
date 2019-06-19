@@ -50,9 +50,14 @@
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-lg-6 transcribe-preview p-0 my-auto">
+        <!-- <div class="col-lg-6 transcribe-preview p-0 my-auto">
           <img src="" id="submissionImage" class="img-fluid zoom" style="height: 100vh">
+        </div> -->
+        <div class="col-lg-6 embed-responsive embed-responsive">
+          <!-- <iframe class="embed-responsive-item" src="..."></iframe> -->
+          <object id="submissionImage" data='' type='application/pdf' width='100%' height='100%'></object>
         </div>
+
         <div class="col-lg-6 transcribe-form entry">
           <div class="container">
 
@@ -74,15 +79,39 @@
                   <!-- 2 input forms for testing purposes only -->
                   <!-- name toevoegen aan input? -->
                   <div class="form-group row">
-                    <label for="inputFName" class="col-md-6 col-form-label">Name</label>
+                    <label for="inputFName" class="col-md-6 col-form-label">Title</label>
                     <div class="col-md-12">
-                      <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+                      <input type="text" class="form-control" name="name" id="title" placeholder="'Onze verjongde Nachtwacht', Wereldkroniek 50, afl. 9 (1947) 3-6." required>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputLName" class="col-md-6 col-form-label">Year</label>
+                    <label for="inputLName" class="col-md-6 col-form-label">Keywords subject</label>
                     <div class="col-md-12">
-                      <input type="text" class="form-control" name="year" id="year" placeholder="Year" required>
+                      <input type="text" class="form-control" name="year" id="keywordsubject" placeholder="Nachtwacht; Rembrandt van Rijn; restauration; Rijksmuseum" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputLName" class="col-md-6 col-form-label">Keywords person</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" name="year" id="keywordperson" placeholder="H.H. Mertens; Ton Koot" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputLName" class="col-md-6 col-form-label">Documenttype</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" name="year" id="doctype" placeholder="publication" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputLName" class="col-md-6 col-form-label">Date</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" name="year" id="date" placeholder="1947-04-12" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputLName" class="col-md-6 col-form-label">Author</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" name="year" id="author" placeholder="unknown" required>
                     </div>
                   </div>
                   <div class="form-group row">
