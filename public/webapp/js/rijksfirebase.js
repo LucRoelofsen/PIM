@@ -24,20 +24,21 @@ db.collection('projects').doc('1').collection('documents').onSnapshot((querySnap
 
 // Count the amount of documents in the project
 db.collection('projects').doc('1').collection('documents').get().then(snap => {
-   window.projectSize = snap.size;
+  window.projectSize = snap.size;
+});
+
+db.collection('projects').doc('1').collection('users').onSnapshot(function(snapshot) {
+  window.index = snapshot.docs[0].data().progress;
 });
 
 // Get current transcribing progress and show corresponding data
-db.collection('projects').doc('1').collection('users').onSnapshot(function(snapshot) {
-  var index = snapshot.docs[0].data().progress;
 
-  db.collection('projects').doc('1').collection('documents').get().then((snapshot) => {
-    var imageURL = snapshot.docs[index].data().image;
-    var docNumber = index + 1;
-    $("#submissionImage").attr("data", imageURL);
-    $("#currentDoc").empty().append("<h3>Document " + docNumber + "/" + projectSize + "</h3>");
-    $("#progressBar").css('width', index + "%");
-  });
+db.collection('projects').doc('1').collection('documents').get().then((snapshot) => {
+  var imageURL = snapshot.docs[index].data().image;
+  var docNumber = index + 1;
+  $("#submissionImage").attr("data", imageURL);
+  $("#currentDoc").empty().append("<h3>Document " + docNumber + "/" + projectSize + "</h3>");
+  $("#progressBar").css('width', index + "%");
 });
 
 
@@ -71,25 +72,19 @@ function getInputVal(id) {
 
 // Save message to firebase
 function saveSubmission(title, keywordsubject, keywordperson, doctype, date, author) {
-  db.collection('projects').doc('1').collection('users').get().then((snapshot) => {
-    var currentDocRaw = snapshot.docs[0].data().progress;
-    db.collection("projects").doc("1").collection("documents").doc(currentDocPath[currentDocRaw]).collection("submissions").doc("1").set({
-      title: title,
-      keywordsubject: keywordsubject,
-      keywordperson: keywordperson,
-      doctype: doctype,
-      date: date,
-      author: author
-    });
+  db.collection("projects").doc("1").collection("documents").doc(currentDocPath[index]).collection("submissions").doc("1").set({
+    title: title,
+    keywordsubject: keywordsubject,
+    keywordperson: keywordperson,
+    doctype: doctype,
+    date: date,
+    author: author
   });
 };
 
 // Update progress in firebase
 function updateProgress() {
-  db.collection('projects').doc('1').collection('users').get().then((snapshot) => {
-    var index = snapshot.docs[0].data().progress;
-    db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").set({
-      progress: index + 1
-    });
+  db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").set({
+    progress: index + 1
   });
 };
