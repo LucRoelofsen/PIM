@@ -22,6 +22,11 @@ db.collection('projects').doc('1').collection('documents').onSnapshot((querySnap
   });
 });
 
+// Count the amount of documents in the project
+db.collection('projects').doc('1').collection('documents').get().then(snap => {
+   window.projectSize = snap.size;
+});
+
 // Get current transcribing progress and show corresponding data
 db.collection('projects').doc('1').collection('users').onSnapshot(function(snapshot) {
   var index = snapshot.docs[0].data().progress;
@@ -30,7 +35,7 @@ db.collection('projects').doc('1').collection('users').onSnapshot(function(snaps
     var imageURL = snapshot.docs[index].data().image;
     var docNumber = index + 1;
     $("#submissionImage").attr("data", imageURL);
-    $("#currentDoc").empty().append("<h3>Document " + docNumber + "/100</h3>");
+    $("#currentDoc").empty().append("<h3>Document " + docNumber + "/" + projectSize + "</h3>");
     $("#progressBar").css('width', index + "%");
   });
 });
