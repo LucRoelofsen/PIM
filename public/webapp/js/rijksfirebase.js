@@ -27,20 +27,24 @@ db.collection('projects').doc('1').collection('documents').get().then(snap => {
   window.projectSize = snap.size;
 });
 
-db.collection('projects').doc('1').collection('users').onSnapshot(function(snapshot) {
-  window.index = snapshot.docs[0].data().progress;
-});
+function loadProgress() {
+  db.collection('projects').doc('1').collection('users').get().then((snapshot) => {
+    window.userProgress = snapshot.docs[0].data().progress;
+  }).then(function() {
+    db.collection('projects').doc('1').collection('documents').get().then((snapshot) => {
+      var imageURL = snapshot.docs[userProgress].data().image;
+      var docNumber = userProgress + 1;
+      var showProgress = (userProgress / projectSize) * 100
+      $("#submissionImage").attr("data", imageURL);
+      $("#currentDoc").empty().append("<h3>Document " + docNumber + "/" + projectSize + "</h3>");
+      $("#progressBar").css('width', showProgress + "%");
+    });
+  });
+};
 
-// Get current transcribing progress and show corresponding data
+db.collection('projects').doc('1').collection('users').onSnapshot(function() { loadProgress(); } );
 
-db.collection('projects').doc('1').collection('documents').get().then((snapshot) => {
-  var imageURL = snapshot.docs[index].data().image;
-  var docNumber = index + 1;
-  $("#submissionImage").attr("data", imageURL);
-  $("#currentDoc").empty().append("<h3>Document " + docNumber + "/" + projectSize + "</h3>");
-  $("#progressBar").css('width', index + "%");
-});
-
+loadProgress();
 
 // Listen for form submit
 document.getElementById("submissionForm").addEventListener("submit", submitForm);
@@ -72,7 +76,7 @@ function getInputVal(id) {
 
 // Save message to firebase
 function saveSubmission(title, keywordsubject, keywordperson, doctype, date, author) {
-  db.collection("projects").doc("1").collection("documents").doc(currentDocPath[index]).collection("submissions").doc("1").set({
+  db.collection("projects").doc("1").collection("documents").doc(currentDocPath[userProgress]).collection("submissions").doc("1").set({
     title: title,
     keywordsubject: keywordsubject,
     keywordperson: keywordperson,
@@ -80,11 +84,12 @@ function saveSubmission(title, keywordsubject, keywordperson, doctype, date, aut
     date: date,
     author: author
   });
+  loadProgress();
 };
 
 // Update progress in firebase
 function updateProgress() {
   db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").set({
-    progress: index + 1
+    progress: userProgress + 1
   });
 };
