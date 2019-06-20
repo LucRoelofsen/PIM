@@ -53,53 +53,42 @@
 
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row begin">
-        <div class="col-md-5">
-          <h3>Manage users</h3>
-        </div>
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-4">
-          <div class="card stats-card">
-            <div class="card-body">
-              <h3 class="d-inline"><i class="fe fe-users"></i> 976</h3><p class="lead d-inline">Total users</p>
-            </div>
-          </div>
-        </div>
-    <div class="col-md-12">
-      <div class="card statistics">
-
-        <div class="card-header">
-          <h5 class="card-title">Users</h5>
-        </div>
-        <div>
-          <table class="table table-bordered table-sm">
-            <tr>
-              <th>Username</th>
-              <th>Email adress</th>
-              <th>Projects completed</th>
-              <th>Points Earned</th>
-              <th></th>
-            </tr>
-            <tr>
-              <td>BobPietersen</td>
-              <td>bobpietersen2110@gmail.com</td>
-              <td>24</td>
-              <td>1230</td>
-              <td>
-                <a href="edit_user.html"><button class="btn" title="Edit"><i class="fe fe-edit"></i></button></a>
-                <button class="btn" title="Report"><i class="fe fe-alert-triangle"></i></button>
-                <button class="btn" title="Delete"><i class="fe fe-minus-circle"></i></button>
-              </td>
-            </tr>
-          </table>
-        </div>
-        </div>
+      <div class="row editting">
+        <div class="col-md-12">
+          <h3>Edit profile</h3>
         </div>
       </div>
-      <hr class="featurette-divider">
+        <div class="row">
+          <div class="col-sm-12 col-md-5 col-lg-3">
+            <img src="../img/avatar.jpg" alt="avatar" class="avatar">
+            <a href="#" class="btn-font avi">Change avatar</a>
+          </div>
+          <div class="col-md-7">
+            <form class="col-sm-12 col-md-8 col-lg-3 edittingform" method="post">
+              <div class="form-group btn-font">
+                First name
+                <input type="text" class="form-control btn-font" value="Bob">
+              </div>
+              <div class="form-group btn-font">
+                Last name
+                <input type="text" class="form-control btn-font" value="Pietersen">
+              </div>
+              <div class="form-group btn-font">
+                Email adress
+                <input type="text" class="form-control btn-font" value="bobpietersen2110@gmail.com">
+              </div>
+              <div>
+              <button class="btn btn-rijks btn-lg btn-block btn-font" type="submit">Edit</button>
+              </div>
+              <div class="editlink">
+              <a href="users.html" class="btn-font ">Back to users page</a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <hr class="featurette-divider">
     </div>
-  </main>
+    </main>
   <footer class="container">
     <p class="lead pb-5">RijksCrowd © 2019. All rights reserved.</p>
   </footer>

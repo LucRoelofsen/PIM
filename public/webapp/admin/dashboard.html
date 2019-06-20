@@ -67,7 +67,7 @@
         <div class="col-md-4">
           <div class="card stats-card">
             <div class="card-body">
-              <h3 class="d-inline"><i class="fe fe-arrow-up-right"></i> 1500</h3><p class="lead d-inline"> forms today</p>
+              <h3 class="d-inline"><i class="fe fe-arrow-up-right"></i> 930</h3><p class="lead d-inline"> forms today</p>
             </div>
           </div>
         </div>
@@ -217,26 +217,21 @@
           </div>
         </div>
       </div>
-      <div class="row">
-
-        <div class="col-md-7">
-          <div class="card">
-            <div class="card-header">
-              <h5 class="card-title">Statistics</h5>
-            </div>
-            <div id="chart_div" style="width:570px; height: 350px"></div>
-          </div>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Statistics</h5>
         </div>
-        <div class="col-md-5">
-          <div class="card stats-card">
-            <div class="card-body">
-              <h3 class="d-inline"><i class="fe fe-clipboard"></i> 5</h3><p class="lead d-inline"> projects</p>
+        <div class="row">
+            <div class="col-md-7">
+              <div id="chart_div" style="width:570px; height: 350px"></div>
             </div>
-          </div>
+            <div class="card-body col-md-5 begin">
+              <h3 class="d-inline"><i class="fe fe-disc"></i> 67890</h3><p class="lead d-inline"> Total points earned<br></p>
+              <h3 class="d-inline"><i class="fe fe-clipboard"></i> 71</h3><p class="lead d-inline"> Total projects transcribed<br></p>
+              <h3 class="d-inline"><i class="fe fe-alert-circle"></i> 429</h3><p class="lead d-inline"> Total reports received</p>
+            </div>
         </div>
-
       </div>
-    </div>
 
 
 
@@ -255,42 +250,8 @@
 <script type="text/javascript" src="../js/rijkscrowd.js"></script>
 <script type="text/javascript" src="../js/dashboard.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawCurveTypes);
+<script type="text/javascript" src="../js/chart.js"></script>
 
-function drawCurveTypes() {
-  var data = new google.visualization.DataTable();
-  data.addColumn('date', 'Date');
-  data.addColumn('number', 'Docs submitted');
-  data.addColumn('number', 'Reports received');
-
-
-  data.addRows([
-    [new Date(2018, 11, 1), 423, 65],
-    [new Date(2018, 12, 1), 492, 54],
-    [new Date(2019, 1, 1), 546, 52],
-    [new Date(2019, 2, 1), 487, 49],
-    [new Date(2019, 3, 1), 590, 51],
-    [new Date(2019, 4, 1), 542, 45],
-    [new Date(2019, 5, 1), 564, 43],
-
-  ]);
-
-  var options = {
-    hAxis: {
-      title: 'Date'
-    },
-    vAxis: {
-      title: 'Amount'
-    },
-
-  };
-
-  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-  chart.draw(data, options);
-}
-</script>
 
 
 </body>

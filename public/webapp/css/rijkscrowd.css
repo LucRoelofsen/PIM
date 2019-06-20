@@ -161,6 +161,27 @@ h2, h3 {
 .statistics {
   margin-top: 20px
 }
+
+.editting {
+  padding-top: 5rem;
+  margin-left: 35px;
+}
+
+.edittingform {
+  position: relative;
+  padding-top: 20px;
+  background-color: #ffffff;
+  max-width: 400px;
+}
+
+.avi {
+  margin-left: 65px
+}
+
+.editlink {
+  padding-top: 0.5em;
+}
+
 /* TRANSCRIBE COMPONENTS
 -------------------------------------------------- */
 .sizemessage {
