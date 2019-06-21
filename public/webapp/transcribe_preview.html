@@ -30,7 +30,7 @@
           <a class="nav-link" href="dashboard.html">Home<i class="fe fe-home float-right"></i></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="transcribe_preview.html">Transcribe<i class="fe fe-edit float-right"></i></a>
+          <a class="nav-link" href="transcribe_overview.html">Transcribe<i class="fe fe-edit float-right"></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="profile.html">Profile<i class="fe fe-settings float-right"></i></a>
@@ -83,12 +83,10 @@
                 <div class="list-group-item d-flex align-items-center">
                   <div class="">
                     <div>You are now working on <b>Project #15326</b>.</div>
-                    <div class="text-muted">
-                      100 documents / <span class="badge badge-secondary">500 points</span>
-                    </div>
+                    <div id="previewTotal" class="text-muted"></div>
                   </div>
                   <div class="ml-auto">
-                    <a href="transcribe.html" class="btn btn-rijks">Start transcribing</a>
+                    <a href="transcribe.html" id="startProject" class="btn btn-rijks d-none">Start transcribing</a>
                   </div>
                 </div>
               </div>
@@ -97,7 +95,7 @@
                   <div class="col-md-12 p-0">
                     <div><b>Progress</b></div>
                     <div class="row">
-                      <div class="col-md-6">Submitted: 36/100<br>Approved: 12 / <span class="badge badge-success">60 points</span></div>
+                      <div id="previewProgress" class="col-md-6"></div>
                       <div class="col-md-6">Rejected: <span class="badge badge-success">0</span><br>Overall accuracy: <span class="badge badge-success">100%</span></div>
                     </div>
                   </div>
@@ -107,7 +105,7 @@
                     <div class="">
                       <div><b>Overview</b></div>
                       <p>
-                        This project contains <b>100</b> documents which need to be transcribed. Per document, you will earn <b>5</b> points.
+                        This project contains <b id="previewOverview"></b> documents which need to be transcribed. Per document, you will earn <b>5</b> points.
                         You will be able to spend your coins if at least 10 other people have transcribed the same document and if your accuracy is high enough.
                       </p>
                     </div>
@@ -157,12 +155,10 @@
 
     </main>
 
-
     <!-- Javascript -->
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/rijkscrowd.js"></script>
     <script type="text/javascript" src="js/rijksfirebase.js"></script>
-    <script type="text/javascript" src="js/wheelzoom.js"></script>
 
   </body>
   </html>

@@ -16,6 +16,10 @@ var config = {
 firebase.initializeApp(config);
 var db = firebase.firestore();
 
+// Get current filename
+var pathArray = window.location.pathname.split('/');
+var currentFile = pathArray[pathArray.length-1];
+
 
 /*
  * --------------------------------------------------
@@ -46,20 +50,30 @@ function loadProgress() {
   }).then(function() {
     db.collection('projects').doc('1').collection('documents').get().then((snapshot) => {
 
-      // Show transcribing process
+      var docNumber = userProgress + 1;
+      var showProgress = (userProgress / projectSize) * 100
+      $("#progressBar").css('width', showProgress + "%");
+      $("#previewTotal").append(projectSize + " documents / <span class='badge badge-secondary'>" + projectSize*5 + " points</span>");
+      $("#previewProgress").append("Submitted: " + userProgress + "/" + projectSize + "<br>Approved: " + userProgress + " / <span class='badge badge-success'>" + projectSize*5 + " points</span>");
+      $("#previewOverview").append(projectSize);
+
+      // Shows transcribing process
       // Redirect the user to project preview if end of project has been reached
       if (userProgress < projectSize) {
         var imageURL = snapshot.docs[userProgress].data().image;
-        var docNumber = userProgress + 1;
-        var showProgress = (userProgress / projectSize) * 100
+
         $("#submissionImage").attr("data", imageURL);
-        $("#currentDoc").empty().append("<h3>Document " + docNumber + "/" + projectSize + "</h3>");
-        $("#progressBar").css('width', showProgress + "%");
-      } else {
+        $("#currentDoc").empty().append("<h3>Document " + docNumber + "/" + projectSize + "</h3>").css('text-align', 'right');
+        $("#startProject").removeClass("d-none");
+
+      } else if (currentFile == 'transcribe.html') {
         db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").update({
           completed: true
         });
         window.location.assign("transcribe_preview.html");
+        $("#startProject").addClass("d-none");
+      } else {
+        $("#currentDoc").empty().append("<h3>Project completed</h3>").css('text-align', 'right');
       };
 
     });

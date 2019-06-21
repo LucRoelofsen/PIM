@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <title>Home</title>
+  <title>My projects</title>
 
   <!-- Bootstrap core and custom CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
@@ -12,6 +12,8 @@
   <link href="css/feather-icons.css" rel="stylesheet">
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
 </head>
 
 <body class="dashboard">
@@ -75,13 +77,11 @@
               <h5 class="card-title">Open projects</h5>
             </div>
 
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item d-flex align-items-center">
                 <div class="">
                   <div>Project #15326</div>
-                  <div class="text-muted">
-                    100 documents / <span class="badge badge-secondary">500 points</span>
-                  </div>
+                  <div id="previewTotal" class="text-muted"></div>
                 </div>
                 <div class="ml-auto">
                   <a href="transcribe_preview.html" class="btn btn-rijks">Continue project</a>
@@ -99,8 +99,8 @@
               <h5 class="card-title">Available projects</h5>
             </div>
 
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item d-flex align-items-center">
                 <div class="">
                   <div>Project #15327</div>
                   <div class="text-muted">
@@ -112,8 +112,8 @@
                 </div>
               </div>
             </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item d-flex align-items-center">
                 <div class="">
                   <div>Project #15328</div>
                   <div class="text-muted">
@@ -125,8 +125,8 @@
                 </div>
               </div>
             </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item d-flex align-items-center">
                 <div class="">
                   <div>Project #15329</div>
                   <div class="text-muted">
@@ -138,8 +138,8 @@
                 </div>
               </div>
             </div>
-            <div class="list-group list-group-flush ">
-              <div class="list-group-item d-flex  align-items-center">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item d-flex align-items-center">
                 <div class="">
                   <div>Project #15330</div>
                   <div class="text-muted">
@@ -169,7 +169,7 @@
   <!-- Javascript -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/rijkscrowd.js"></script>
-
+  <script type="text/javascript" src="js/rijksfirebase.js"></script>
 
 </body>
 </html>
