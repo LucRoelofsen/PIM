@@ -50,11 +50,7 @@
     <div class="container-fluid">
 
       <div class="row">
-        <!-- <div class="col-lg-6 transcribe-preview p-0 my-auto">
-          <img src="" id="submissionImage" class="img-fluid zoom" style="height: 100vh">
-        </div> -->
         <div class="col-lg-6 embed-responsive">
-          <!-- <iframe class="embed-responsive-item" src="..."></iframe> -->
           <object id="submissionImage" data='' type='application/pdf' width='100%' height='100%'></object>
         </div>
 
@@ -134,7 +130,7 @@
                             Are you sure you want to skip this document? This document will not be shown again and you will not earn points for this document.
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Yes</button>
+                            <button id="confirmSkip" type="button" class="btn btn-secondary" data-dismiss="modal">Yes</button>
                             <button type="button" class="btn btn-rijks" data-dismiss="modal">No</button>
                           </div>
                         </div>
@@ -154,7 +150,7 @@
                             Are you sure you want to report this document as illegible? This document will not be shown again and you will not earn points for this document.
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Yes</button>
+                            <button id="confirmIllegible" type="button" class="btn btn-secondary" data-dismiss="modal">Yes</button>
                             <button type="button" class="btn btn-rijks" data-dismiss="modal">No</button>
                           </div>
                         </div>
@@ -181,9 +177,6 @@
   <script type="text/javascript" src="js/rijkscrowd.js"></script>
   <script type="text/javascript" src="js/rijksfirebase.js"></script>
   <script type="text/javascript" src="js/wheelzoom.js"></script>
-	<script>
-		wheelzoom(document.querySelector('img.zoom'));
-	</script>
 
 </body>
 </html>
