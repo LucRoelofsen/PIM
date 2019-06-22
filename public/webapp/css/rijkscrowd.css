@@ -313,18 +313,14 @@ input[type=file] {
     margin: 0 0 14px;
 }
 
-.btn.btn-primary {
-    background-color: #00a8ff;
-    border-color: #00a8ff;
+.projectlinkcolor {
+  color: #d55140;
 }
 
 .projectlinkcolor:hover {
   color: #d55140;
 }
 
-.projectlinkcolor {
-  color: #d55140;
-}
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

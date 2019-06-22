@@ -54,7 +54,7 @@ function loadProgress() {
       var showProgress = (userProgress / projectSize) * 100
       $("#progressBar").css('width', showProgress + "%");
       $("#previewTotal").empty().append(projectSize + " documents / <span class='badge badge-secondary'>" + projectSize*5 + " points</span>");
-      $("#previewProgress").empty().append("Submitted: " + userProgress + "/" + projectSize + "<br>Approved: " + userProgress + " / <span class='badge badge-success'>" + projectSize*5 + " points</span>");
+      $("#previewProgress").empty().append("Submitted: " + userProgress + "/" + projectSize + "<br>Approved: " + userProgress + " / <span class='badge badge-success'>" + userProgress*5 + " points</span>");
       $("#previewOverview").empty().append(projectSize);
 
       // Shows transcribing process
@@ -146,5 +146,39 @@ if (currentFile == 'transcribe.html') {
   // Future implementation: report to admin
   document.getElementById("confirmIllegible").addEventListener("click", function(){
     updateProgress();
+  })
+};
+
+
+/*
+* --------------------------------------------------
+* Shows available projects on the user dashboard
+* --------------------------------------------------
+*/
+const projectsList = document.querySelector('#projectsList');
+
+// Create element and render projects
+function renderProjects(doc){
+  let group = document.createElement('div');
+  let item = document.createElement('div');
+  let projectID = doc.data().projectID;
+
+  group.setAttribute('class', 'list-group list-group-flush');
+  item.setAttribute('id', doc.id);
+  item.setAttribute('class', 'list-group-item d-flex align-items-center');
+
+  group.append(item);
+  projectsList.append(group);
+
+  $("#" + doc.id).append("<div class=''><div>Project #" + projectID + "</div><div class='text-muted'>100 documents / <span class='badge badge-secondary'>500 points</span></div></div>");
+  $("#" + doc.id).append("<div class='ml-auto'><a href='transcribe_preview.html' class='btn btn-rijks'>Continue project</a></div>");
+  console.log(projectSize);
+}
+
+if (currentFile == 'dashboard.html') {
+  db.collection('projects').get().then((snapshot) => {
+    snapshot.docs.forEach(doc => {
+      renderProjects(doc)
+    })
   })
 };

@@ -72,7 +72,7 @@
             <div class="card" style="background-color: #ffdb99;">
               <div class="card-body">
                 <form id="submissionForm" onsubmit="return false;">
-                  <!-- 2 input forms for testing purposes only -->
+
                   <!-- name toevoegen aan input? -->
                   <div class="form-group row">
                     <label for="inputFName" class="col-md-6 col-form-label">Title</label>
@@ -117,7 +117,7 @@
                       <button type="submit" class="btn btn-success">Submit</button>
                     </div>
 
-                    <div class="modal fade" id="skipModal"tabindex="-1" role="dialog" aria-labelledby="skipModalLabel" aria-hidden="true">
+                    <!-- <div class="modal fade" id="skipModal"tabindex="-1" role="dialog" aria-labelledby="skipModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -155,7 +155,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
                   </div>
                 </form>
@@ -163,6 +163,46 @@
             </div>
 
 
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="skipModal"tabindex="-1" role="dialog" aria-labelledby="skipModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="skipModalLabel">Skip document</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" type="text">
+              Are you sure you want to skip this document? This document will not be shown again and you will not earn points for this document.
+            </div>
+            <div class="modal-footer">
+              <button id="confirmSkip" type="button" class="btn btn-secondary" data-dismiss="modal">Yes</button>
+              <button type="button" class="btn btn-rijks" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="illegibleModal"tabindex="-1" role="dialog" aria-labelledby="illegibleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="illegibleModalLabel">Illegible document</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" type="text">
+              Are you sure you want to report this document as illegible? This document will not be shown again and you will not earn points for this document.
+            </div>
+            <div class="modal-footer">
+              <button id="confirmIllegible" type="button" class="btn btn-secondary" data-dismiss="modal">Yes</button>
+              <button type="button" class="btn btn-rijks" data-dismiss="modal">No</button>
+            </div>
           </div>
         </div>
       </div>
