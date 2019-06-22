@@ -22,9 +22,9 @@ var currentFile = pathArray[pathArray.length-1];
 
 
 /*
- * --------------------------------------------------
- * Shows real-time data of the transcribing progress
- * --------------------------------------------------
+* --------------------------------------------------
+* Shows real-time data of the transcribing progress
+* --------------------------------------------------
 */
 
 // Listen for real-time changes
@@ -53,9 +53,9 @@ function loadProgress() {
       var docNumber = userProgress + 1;
       var showProgress = (userProgress / projectSize) * 100
       $("#progressBar").css('width', showProgress + "%");
-      $("#previewTotal").append(projectSize + " documents / <span class='badge badge-secondary'>" + projectSize*5 + " points</span>");
-      $("#previewProgress").append("Submitted: " + userProgress + "/" + projectSize + "<br>Approved: " + userProgress + " / <span class='badge badge-success'>" + projectSize*5 + " points</span>");
-      $("#previewOverview").append(projectSize);
+      $("#previewTotal").empty().append(projectSize + " documents / <span class='badge badge-secondary'>" + projectSize*5 + " points</span>");
+      $("#previewProgress").empty().append("Submitted: " + userProgress + "/" + projectSize + "<br>Approved: " + userProgress + " / <span class='badge badge-success'>" + projectSize*5 + " points</span>");
+      $("#previewOverview").empty().append(projectSize);
 
       // Shows transcribing process
       // Redirect the user to project preview if end of project has been reached
@@ -82,118 +82,69 @@ function loadProgress() {
 
 
 /*
-------------------------------------------------------------
-Transcribing functionality
-> Form handling on the transcribe page
-------------------------------------------------------------
+* --------------------------------------------------
+* Transcribing functionality
+* > Form handling on the transcribe page only
+* --------------------------------------------------
 */
 
 // Listen for form submit
-document.getElementById("submissionForm").addEventListener("submit", submitForm);
+if (currentFile == 'transcribe.html') {
+  document.getElementById("submissionForm").addEventListener("submit", submitForm);
 
-// Submit form
-function submitForm(e) {
-  e.preventDefault();
+  // Submit form
+  function submitForm(e) {
+    e.preventDefault();
 
-  // Get values from form
-  var title = getInputVal("title");
-  var keywordsubject = getInputVal("keywordsubject");
-  var keywordperson = getInputVal("keywordperson");
-  var doctype = getInputVal("doctype");
-  var date = getInputVal("date");
-  var author = getInputVal("author");
+    // Get values from form
+    var title = getInputVal("title");
+    var keywordsubject = getInputVal("keywordsubject");
+    var keywordperson = getInputVal("keywordperson");
+    var doctype = getInputVal("doctype");
+    var date = getInputVal("date");
+    var author = getInputVal("author");
 
-  // Save submission
-  saveSubmission(title, keywordsubject, keywordperson, doctype, date, author);
-  updateProgress();
+    // Save submission
+    saveSubmission(title, keywordsubject, keywordperson, doctype, date, author);
+    updateProgress();
 
-  // Clear form
-  document.getElementById("submissionForm").reset();
-}
+    // Clear form
+    document.getElementById("submissionForm").reset();
+  }
 
-// Function to get get form values
-function getInputVal(id) {
-  return document.getElementById(id).value
+  // Function to get get form values
+  function getInputVal(id) {
+    return document.getElementById(id).value
+  };
+
+  // Save data to Firebase
+  function saveSubmission(title, keywordsubject, keywordperson, doctype, date, author) {
+    db.collection("projects").doc("1").collection("documents").doc(currentDocPath[userProgress]).collection("submissions").doc("1").update({
+      title: title,
+      keywordsubject: keywordsubject,
+      keywordperson: keywordperson,
+      doctype: doctype,
+      date: date,
+      author: author
+    });
+  };
+
+  // Update progress in Firebase
+  function updateProgress() {
+    db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").update({
+      progress: userProgress + 1
+    });
+
+  };
+
+  // Handles skipping documents
+  document.getElementById("confirmSkip").addEventListener("click", function(){
+    updateProgress();
+  })
+
+  // Handles reporting illegible documents
+  // Future implementation: report to admin
+  document.getElementById("confirmIllegible").addEventListener("click", function(){
+    updateProgress();
+  })
 };
-
-// Save data to Firebase
-function saveSubmission(title, keywordsubject, keywordperson, doctype, date, author) {
-  db.collection("projects").doc("1").collection("documents").doc(currentDocPath[userProgress]).collection("submissions").doc("1").update({
-    title: title,
-    keywordsubject: keywordsubject,
-    keywordperson: keywordperson,
-    doctype: doctype,
-    date: date,
-    author: author
-  });
-};
-
-// Update progress in Firebase
-function updateProgress() {
-  db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").update({
-    progress: userProgress + 1
-  });
-
-};
-
-// Handles skipping documents
-document.getElementById("confirmSkip").addEventListener("click", function(){
-  updateProgress();
-})
-
-// Handles reporting illegible documents
-// Future implementation: report to admin
-document.getElementById("confirmIllegible").addEventListener("click", function(){
-  updateProgress();
-})
-
-
-/*
-------------------------------------------------------------
-Transcribe preview
-> Retrieve and show real-time on the preview page
-------------------------------------------------------------
-*/
-
-// // Listen for real-time changes
-// db.collection('projects').doc('1').collection('users').onSnapshot(function() { loadProgress(); } );
-//
-// // Get document name for the preview screen
-// window.currentDocPath = [];
-// db.collection('projects').doc('1').collection('documents').onSnapshot((querySnapshot) => {
-//   querySnapshot.forEach((doc) => {
-//     currentDocPath.push(doc.id);
-//   });
-// });
-//
-// // Count the amount of documents in the project
-// db.collection('projects').doc('1').collection('documents').get().then(snap => {
-//   window.projectSize = snap.size;
-// });
-//
-// // Get current transcribing progress and show corresponding data
-// function loadProgress() {
-//   db.collection('projects').doc('1').collection('users').get().then((snapshot) => {
-//     window.userProgress = snapshot.docs[0].data().progress;
-//   }).then(function() {
-//     db.collection('projects').doc('1').collection('documents').get().then((snapshot) => {
-//
-//       // Show transcribing process
-//       // Redirect the user to project preview if end of project has been reached
-//       if (userProgress < projectSize) {
-//         var imageURL = snapshot.docs[userProgress].data().image;
-//         var docNumber = userProgress + 1;
-//         var showProgress = (userProgress / projectSize) * 100
-//         $("#submissionImage").attr("data", imageURL);
-//         $("#currentDoc").empty().append("<h3>Document " + docNumber + "/" + projectSize + "</h3>");
-//         $("#progressBar").css('width', showProgress + "%");
-//       } else {
-//         db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").update({
-//           completed: true
-//         });
-//         window.location.replace("transcribe_preview.html");
-//       };
-//
-//     });
-//   });
-// };

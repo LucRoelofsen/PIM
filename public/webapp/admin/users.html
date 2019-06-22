@@ -18,11 +18,11 @@
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-left bg-dark">
     <a class="navbar-brand" href="#">RijksCrowd Dashboard</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDashboard" aria-controls="navbarDashboard" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse" id="navbarDashboard">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="dashboard.html">Home<i class="fe fe-home float-right"></i></a>
@@ -32,8 +32,8 @@
             Projects<i class="fe fe-edit float-right"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="nav_projects">
-            <a class="dropdown-item" href="manage_projects.html">Manages</a>
-            <a class="dropdown-item" href="new_project.html">New Project</a>
+            <a class="dropdown-item" href="manage_projects.html">Manage projects</a>
+            <a class="dropdown-item" href="new_project.html">New project</a>
           </div>
         </li>
         <li class="nav-item active">
@@ -62,51 +62,50 @@
         <div class="col-md-4">
           <div class="card stats-card">
             <div class="card-body">
-              <h3 class="d-inline"><i class="fe fe-users"></i> 976</h3><p class="lead d-inline">Total users</p>
+              <h3 class="d-inline"><i class="fe fe-users"></i> 976</h3><p class="lead d-inline"> total users</p>
             </div>
           </div>
         </div>
-    <div class="col-md-12">
-      <div class="card statistics">
-
-        <div class="card-header">
-          <h5 class="card-title">Users</h5>
-        </div>
-        <div>
-          <table class="table table-bordered table-sm">
-            <tr>
-              <th>Username</th>
-              <th>Email adress</th>
-              <th>Projects completed</th>
-              <th>Points Earned</th>
-              <th></th>
-            </tr>
-            <tr>
-              <td>BobPietersen</td>
-              <td>bobpietersen2110@gmail.com</td>
-              <td>24</td>
-              <td>1230</td>
-              <td>
-                <a href="edit_user.html"><button class="btn" title="Edit"><i class="fe fe-edit"></i></button></a>
-                <button class="btn" title="Report"><i class="fe fe-alert-triangle"></i></button>
-                <button class="btn" title="Delete"><i class="fe fe-minus-circle"></i></button>
-              </td>
-            </tr>
-          </table>
-        </div>
-        </div>
+        <div class="col-md-12">
+          <div class="card statistics">
+            <div class="card-header">
+              <h5 class="card-title">Users</h5>
+            </div>
+            <div>
+              <table class="table table-bordered table-sm">
+                <tr>
+                  <th>Username</th>
+                  <th>Email address</th>
+                  <th>Projects completed</th>
+                  <th>Points Earned</th>
+                  <th>Actions</th>
+                </tr>
+                <tr>
+                  <td>BobPietersen</td>
+                  <td>bobpietersen2110@gmail.com</td>
+                  <td>24</td>
+                  <td>1230</td>
+                  <td>
+                    <a href="edit_user.html"><button class="btn" title="Edit"><i class="fe fe-edit"></i></button></a>
+                    <button class="btn" title="Report"><i class="fe fe-alert-triangle"></i></button>
+                    <button class="btn" title="Delete"><i class="fe fe-minus-circle"></i></button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
       <hr class="featurette-divider">
     </div>
   </main>
   <footer class="container">
-    <p class="lead pb-5">RijksCrowd © 2019. All rights reserved.</p>
+    <p class="lead pb-5" style="font-size: 1rem;">RijksCrowd © 2019. All rights reserved.</p>
   </footer>
 
   <!-- Javascript -->
-  <script type="text/javascript" src="../js/bootstrap.js"></script>
-  <script type="text/javascript" src="../js/rijkscrowd.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/rijkscrowd.js"></script>
 
 </body>
 </html>

@@ -18,11 +18,11 @@
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-left bg-dark">
     <a class="navbar-brand" href="#">RijksCrowd Dashboard</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDashboard" aria-controls="navbarDashboard" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse" id="navbarDashboard">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="dashboard.html">Home<i class="icon-placeholder fe fe-home float-right"></i></a>
@@ -50,25 +50,22 @@
       <!-- Example row of columns -->
       <div class="card mb-3 profilecard">
         <div class="row">
-          <div class="col-sm-12 col-md-5 col-lg-3">
+          <div class="col-lg-3 col-md-5 col-sm-12">
             <img src="img/avatar.jpg" alt="avatar" class="avatar">
           </div>
-          <div class="col-sm-12 col-md-7 col-lg-6">
-            <div class="card-body">
+          <div class="col-lg-6 col-md-7 col-sm-12">
+            <div class="card-body btn-font">
               <h3 class="card-title">My Profile</h3>
-              <p class="btn-font">
-                Bob Pietersen<br>
-                bobpietersen2110@gmail.com<br>
-                <a href="#">Change email address</a> <br>
-                <a href="#">Change password</a>
-              </p>
+              <h1>Bob Pietersen</h1>
+              <p>bobpietersen2110@gmail.com</p>
+              <p><a href="#" class="btn btn-outline-dark">Change e-mail address</a> <a href="#" class="btn btn-outline-dark">Change password</a></p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="row mb-3 btn-font">
-        <div class="col-md-12 col-lg-4">
+        <div class="col-lg-4 col-md-12">
           <div class="card stats-card">
             <div class="card-body">
               <h3 class="d-inline"><i class="icon-placeholder fe fe-clipboard"></i> 5</h3><p class="lead d-inline"> finished projects</p>
@@ -76,7 +73,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12 col-lg-4">
+        <div class="col-lg-4 col-md-12">
           <div class="card stats-card">
             <div class="card-body">
               <h3 class="d-inline"><i class="icon-placeholder fe fe-award"></i> 8</h3><p class="lead d-inline"> badges</p>
@@ -84,7 +81,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12 col-lg-4">
+        <div class="col-lg-4 col-md-12">
           <div class="card stats-card">
             <div class="card-body">
               <h3 class="d-inline"><i class="icon-placeholder fe fe-disc"></i> 1500</h3><p class="lead d-inline"> points</p>
@@ -172,7 +169,7 @@
   </footer>
 
   <!-- Javascript -->
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script src="js/bootstrap.js"></script>
 
 </body>
 </html>
