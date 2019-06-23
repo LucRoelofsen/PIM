@@ -155,6 +155,7 @@ if (currentFile == 'transcribe.html') {
 * Shows available projects on the user dashboard
 * --------------------------------------------------
 */
+
 const projectsList = document.querySelector('#projectsList');
 
 // Create element and render projects

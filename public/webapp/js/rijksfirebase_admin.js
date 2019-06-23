@@ -3,18 +3,7 @@ RijksCrowd Firebase Admin JavaScript
 Andrew Tan, Luc Roelofsen, Bob Pietersen
 */
 
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyCSjEyjHH51xNwlftWuYKTwzmFyNBLZFX8",
-  authDomain: "pim-app-7028c.firebaseapp.com",
-  databaseURL: "https://pim-app-7028c.firebaseio.com",
-  projectId: "pim-app-7028c",
-  storageBucket: "pim-app-7028c.appspot.com",
-  messagingSenderId: "964929947463",
-  appId: "1:964929947463:web:de972dacfdd0ef11"
-};
-firebase.initializeApp(config);
-var db = firebase.firestore();
+// Initialize Firebase storage
 var storage = firebase.storage();
 var storageRef = storage.ref();
 
@@ -72,7 +61,7 @@ $('#drop-zone-file').on('change', function() {
 function handleFileUpload(files, obj) {
 
   // Generate random string, used to create folder name
-  name = generateRandomString(20);
+  window.name = generateRandomString(20);
 
   for (var i = 0; i < files.length; i++) {
     var fd = new FormData();
@@ -82,11 +71,12 @@ function handleFileUpload(files, obj) {
       'file': files[i],
       'path': 'upload_' + name
     }, function(data) {
-      console.log(files.length);
+      // console.log(files.length);
       if (!data.error) {
         if (data.progress) {
           $("#drop-caption").empty().append(files.length + " file(s) uploaded!")
           $("#drop-zone").css('background-color', '#c8dfcd');
+          $("#uploader").css('background-color', '#d55140');
           // progress update to view here
         }
         if (data.downloadURL) {
@@ -99,6 +89,13 @@ function handleFileUpload(files, obj) {
       }
     });
   }
+
+  console.log('STORAGEREF EERSTE > ' + storageRef);
+
+  console.log('FOLDER NAME > ' + name);
+  storageRef.child('upload_A0tLkNk8mhG91PxOLsWq//Week+07+-+Study+instructions.pdf').getDownloadURL().then(function(url) {
+    console.log('hardcoded download url > ' + url)
+  });
 };
 
 function fireBaseFileUpload(parameters, callBackData) {
@@ -108,7 +105,11 @@ function fireBaseFileUpload(parameters, callBackData) {
   var path = parameters.path;
 
   // Debugging
-  console.log(file.name);
+  var uploadPath = ('upload_' + name + '/' + file.name);
+  console.log('DEZE IN REFERENCE > ' + uploadPath)
+  // storageRef.child('upload_A0tLkNk8mhG91PxOLsWq//Week+07+-+Study+instructions.pdf').getDownloadURL().then(function(url) {
+  //   console.log(url)
+  // });
 
   //just some error check
   if (!file) {
@@ -125,6 +126,7 @@ function fireBaseFileUpload(parameters, callBackData) {
   var metaData = {
     'contentType': file.type
   };
+  var uploader = document.getElementById('uploader');
   var arr = file.name.split('.');
   var fileSize = formatBytes(file.size); // get clean file size (function below)
   var fileType = file.type;
@@ -133,6 +135,17 @@ function fireBaseFileUpload(parameters, callBackData) {
   var fullPath = path + '/' + file.name;
   var storageRef = firebase.storage().ref(fullPath);
   var uploadFile = storageRef.put(file, metaData);
+
+  var storageH = firebase.storage();
+  var storageRefH = storageH.ref();
+
+  storageRefH.child(uploadPath).getDownloadURL().then(function(url) {
+    console.log('dynamische download url > ' + url)
+  });
+
+  console.log('zelfde als boven? ' + storageRefH);
+
+  console.log('wat is dit > ' + storageRef);
 
   // first instance identifier
   callBackData({
@@ -145,6 +158,7 @@ function fireBaseFileUpload(parameters, callBackData) {
   uploadFile.on('state_changed', function(snapshot) {
     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     progress = Math.floor(progress);
+    uploader.value = progress;
     callBackData({
       progress: progress,
       element: name,
@@ -187,7 +201,3 @@ function formatBytes(bytes, decimals) {
   var i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 };
-
-storageRef.child('upload_8XeOGj5lFegcWOz3gL8K/HOS Boek.pdf').getDownloadURL().then(function(url) {
-  console.log(url)
-});
