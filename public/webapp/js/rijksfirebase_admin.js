@@ -7,6 +7,24 @@ Andrew Tan, Luc Roelofsen, Bob Pietersen
 var storage = firebase.storage();
 var storageRef = storage.ref();
 
+// Get all project IDs
+window.allProjects = [];
+db.collection('projects').onSnapshot((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    allProjects.push(doc.id);
+    console.log(doc.id);
+  });
+});
+console.log(allProjects);
+var currentProject = allProjects[allProjects.length - 1]
+console.log(currentProject);
+
+var fruits = ["Apple", "Banana"];
+var last = fruits[fruits.length - 1];
+console.log(fruits);
+console.log(last);
+
+
 
 /*
 * --------------------------------------------------
@@ -195,10 +213,25 @@ function createProject(previewURL) {
   // Listen for form submit
   if (currentFile == 'new_project.html') {
 
-    db.collection("projects").doc("2").collection("documents").doc("1").set({
-      image: previewURL
+    db.collection('projects').doc('stats').get().then((snapshot) => {
+      window.currentProject = snapshot.docs[0].data().current;
+    }).then(function() {
+
+      // Set the URL in the document so it can be embedded later
+      db.collection("projects").doc(currentProjectPath[currentProject]).collection("documents").doc("1").set({
+        image: previewURL
+      });
+
+      // Update progress in Firebase
+      function updateProgress() {
+        db.collection("admin").doc("stats").update({
+          current: currentProject + 1
+        });
+
+      };
+
     });
-    
+
   };
 
 };
