@@ -8,22 +8,16 @@ var storage = firebase.storage();
 var storageRef = storage.ref();
 
 // Get all project IDs
-window.allProjects = [];
+window.currentProjectPath = [];
 db.collection('projects').onSnapshot((querySnapshot) => {
   querySnapshot.forEach((doc) => {
-    allProjects.push(doc.id);
-    console.log(doc.id);
+    currentProjectPath.push(doc.id);
   });
+  // Get ID of last project
+  // window.currentProject = allProjects[allProjects.length - 1]
 });
-console.log(allProjects);
-var currentProject = allProjects[allProjects.length - 1]
-console.log(currentProject);
 
-var fruits = ["Apple", "Banana"];
-var last = fruits[fruits.length - 1];
-console.log(fruits);
-console.log(last);
-
+// console.log(currentProjectPath);
 
 
 /*
@@ -81,6 +75,8 @@ function handleFileUpload(files, obj) {
   // Generate random string, used to create folder name
   window.name = generateRandomString(20);
 
+  console.log('In uploadrij: ' + files.length);
+
   for (var i = 0; i < files.length; i++) {
     var fd = new FormData();
     fd.append('file', files[i]);
@@ -89,7 +85,6 @@ function handleFileUpload(files, obj) {
       'file': files[i],
       'path': 'upload_' + name
     }, function(data) {
-      // console.log(files.length);
       if (!data.error) {
         if (data.progress) {
           $("#drop-caption").empty().append(files.length + " file(s) uploaded!")
@@ -108,7 +103,21 @@ function handleFileUpload(files, obj) {
     });
   }
 
+  db.collection('admin').doc('stats').get().then((snapshot) => {
+    window.currentProject = snapshot.data().current;
+  }).then(function() {
+    db.collection("admin").doc("stats").update({
+      current: currentProject + 1
+    });
+    writeID = "" + currentProject + "";
+    db.collection("projects").doc(writeID).set({
+      projectID: currentProject
+    });
+  });
+
 };
+
+window.listURL = [];
 
 function fireBaseFileUpload(parameters, callBackData) {
 
@@ -172,6 +181,10 @@ function fireBaseFileUpload(parameters, callBackData) {
     });
   }, function() {
     storageRefDefault.child(uploadPath).getDownloadURL().then(function(url) {
+      listURL.push(url);
+      console.log(listURL);
+      var test = listURL[listURL.length - 1];
+      console.log(test);
       createProject(url);
     });
     var downloadURL = uploadFile.snapshot.downloadURL;
@@ -213,22 +226,14 @@ function createProject(previewURL) {
   // Listen for form submit
   if (currentFile == 'new_project.html') {
 
-    db.collection('projects').doc('stats').get().then((snapshot) => {
-      window.currentProject = snapshot.docs[0].data().current;
+    db.collection('admin').doc('stats').get().then((snapshot) => {
+      window.currentProject = snapshot.data().current;
     }).then(function() {
-
-      // Set the URL in the document so it can be embedded later
-      db.collection("projects").doc(currentProjectPath[currentProject]).collection("documents").doc("1").set({
+      // console.log('oud ' + currentProject);
+      currentProjectGood = "" + currentProject + "";
+      db.collection("projects").doc(currentProjectGood).collection("documents").doc(generateRandomString(20)).set({
         image: previewURL
       });
-
-      // Update progress in Firebase
-      function updateProgress() {
-        db.collection("admin").doc("stats").update({
-          current: currentProject + 1
-        });
-
-      };
 
     });
 
