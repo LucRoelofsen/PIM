@@ -52,7 +52,7 @@ $(document).on('drop', function(e) {
   e.preventDefault();
 });
 
-// automatically submit the form on file select
+// Automatically submit the form on file select
 $('#drop-zone-file').on('change', function() {
   var files = $('#drop-zone-file')[0].files;
   handleFileUpload(files, obj);
@@ -90,12 +90,6 @@ function handleFileUpload(files, obj) {
     });
   }
 
-  console.log('STORAGEREF EERSTE > ' + storageRef);
-
-  console.log('FOLDER NAME > ' + name);
-  storageRef.child('upload_A0tLkNk8mhG91PxOLsWq//Week+07+-+Study+instructions.pdf').getDownloadURL().then(function(url) {
-    console.log('hardcoded download url > ' + url)
-  });
 };
 
 function fireBaseFileUpload(parameters, callBackData) {
@@ -106,10 +100,6 @@ function fireBaseFileUpload(parameters, callBackData) {
 
   // Debugging
   var uploadPath = ('upload_' + name + '/' + file.name);
-  console.log('DEZE IN REFERENCE > ' + uploadPath)
-  // storageRef.child('upload_A0tLkNk8mhG91PxOLsWq//Week+07+-+Study+instructions.pdf').getDownloadURL().then(function(url) {
-  //   console.log(url)
-  // });
 
   //just some error check
   if (!file) {
@@ -136,16 +126,8 @@ function fireBaseFileUpload(parameters, callBackData) {
   var storageRef = firebase.storage().ref(fullPath);
   var uploadFile = storageRef.put(file, metaData);
 
-  var storageH = firebase.storage();
-  var storageRefH = storageH.ref();
-
-  storageRefH.child(uploadPath).getDownloadURL().then(function(url) {
-    console.log('dynamische download url > ' + url)
-  });
-
-  console.log('zelfde als boven? ' + storageRefH);
-
-  console.log('wat is dit > ' + storageRef);
+  var storageDefault = firebase.storage();
+  var storageRefDefault = storageDefault.ref();
 
   // first instance identifier
   callBackData({
@@ -171,6 +153,9 @@ function fireBaseFileUpload(parameters, callBackData) {
       error: error
     });
   }, function() {
+    storageRefDefault.child(uploadPath).getDownloadURL().then(function(url) {
+      createProject(url);
+    });
     var downloadURL = uploadFile.snapshot.downloadURL;
     callBackData({
       downloadURL: downloadURL,
@@ -179,7 +164,9 @@ function fireBaseFileUpload(parameters, callBackData) {
       fileType: fileType,
       fileName: n
     });
+
   });
+
 }
 
 // Used to generate the name of the folder in which documents are stored
@@ -200,4 +187,18 @@ function formatBytes(bytes, decimals) {
   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
   var i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+};
+
+// Create a new project on upload
+function createProject(previewURL) {
+
+  // Listen for form submit
+  if (currentFile == 'new_project.html') {
+
+    db.collection("projects").doc("2").collection("documents").doc("1").set({
+      image: previewURL
+    });
+    
+  };
+
 };
