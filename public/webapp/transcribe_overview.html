@@ -55,7 +55,7 @@
         <div class="col-md-3">
           <div class="card stats-card">
             <div class="card-body">
-              <h3 class="d-inline"><i class="fe fe-clipboard"></i> 5</h3><p class="lead d-inline"> projects</p>
+              <h3 id="totalProjects" class="d-inline"><i class="fe fe-clipboard"></i> </h3><p class="lead d-inline"> projects</p>
             </div>
           </div>
         </div>
@@ -69,22 +69,22 @@
       </div>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-12">
           <div class="card">
 
             <div class="card-header">
-              <h5 class="card-title">Open projects</h5>
+              <h5 class="card-title">Available projects</h5>
             </div>
 
-            <div class="list-group list-group-flush">
+            <div id="projectsList" class="list-group list-group-flush">
               <div class="list-group-item d-flex align-items-center">
-                <div class="">
-                  <div>Project #15326</div>
-                  <div id="previewTotal" class="text-muted"></div>
-                </div>
-                <div class="ml-auto">
-                  <a href="transcribe_preview.html" class="btn btn-rijks">Continue project</a>
-                </div>
+                <ul class="pagination pagination-rijks">
+                  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item"><a class="page-link page-link-rijks" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link page-link-rijks" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link page-link-rijks" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link page-link-rijks" href="#">Next</a></li>
+                </ul>
               </div>
             </div>
 
@@ -94,58 +94,58 @@
           <div class="card">
 
             <div class="card-header">
-              <h5 class="card-title">Available projects</h5>
+              <h5 class="card-title">Closed projects</h5>
             </div>
 
             <div class="list-group list-group-flush">
               <div class="list-group-item d-flex align-items-center">
                 <div class="">
-                  <div>Project #15327</div>
+                  <div>Project #15327 <span class="badge badge-success">+0 points</span></div>
                   <div class="text-muted">
                     50 documents / <span class="badge badge-secondary">250 points</span>
                   </div>
                 </div>
                 <div class="ml-auto">
-                  <a href="transcribe_preview.html" class="btn btn-outline-dark">Start project</a>
+                  <a href="transcribe_preview.html" class="btn btn-outline-dark disabled">Locked</a>
                 </div>
               </div>
             </div>
             <div class="list-group list-group-flush">
               <div class="list-group-item d-flex align-items-center">
                 <div class="">
-                  <div>Project #15328</div>
+                  <div>Project #15328 <span class="badge badge-success">+500 points</span></div>
                   <div class="text-muted">
                     100 documents / <span class="badge badge-secondary">500 points</span>
                   </div>
                 </div>
                 <div class="ml-auto">
-                  <a href="transcribe_preview.html" class="btn btn-outline-dark">Start project</a>
+                  <a href="transcribe_preview.html" class="btn btn-outline-dark disabled">Locked</a>
                 </div>
               </div>
             </div>
             <div class="list-group list-group-flush">
               <div class="list-group-item d-flex align-items-center">
                 <div class="">
-                  <div>Project #15329</div>
+                  <div>Project #15329 <span class="badge badge-success">+1000 points</span></div>
                   <div class="text-muted">
                     200 documents / <span class="badge badge-secondary">1000 points</span>
                   </div>
                 </div>
                 <div class="ml-auto">
-                  <a href="transcribe_preview.html" class="btn btn-outline-dark">Start project</a>
+                  <a href="transcribe_preview.html" class="btn btn-outline-dark disabled">Locked</a>
                 </div>
               </div>
             </div>
             <div class="list-group list-group-flush">
               <div class="list-group-item d-flex align-items-center">
                 <div class="">
-                  <div>Project #15330</div>
+                  <div>Project #15330 <span class="badge badge-success">+0 points</span></div>
                   <div class="text-muted">
                     100 documents / <span class="badge badge-secondary">500 points</span>
                   </div>
                 </div>
                 <div class="ml-auto">
-                  <a href="transcribe_preview.html" class="btn btn-outline-dark">Start project</a>
+                  <a href="transcribe_preview.html" class="btn btn-outline-dark disabled">Locked</a>
                 </div>
               </div>
             </div>

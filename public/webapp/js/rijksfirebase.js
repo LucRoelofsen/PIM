@@ -35,7 +35,6 @@ db.collection('admin').doc('stats').get().then((snapshot) => {
 }).then(function() {
   currentProjectPath += currentProjectPath2;
 }).then(function() {
-  console.log('deze ' + currentProjectPath);
   db.collection('projects').doc(currentProjectPath).collection('users').onSnapshot(function() { loadProgress(currentProjectPath); } );
 
   // Get document name for the preview screen
@@ -67,6 +66,12 @@ function loadProgress() {
       $("#previewProgress").empty().append("Submitted: " + userProgress + "/" + projectSize + "<br>Approved: " + userProgress + " / <span class='badge badge-success'>" + userProgress*5 + " points</span>");
       $("#previewOverview").empty().append(projectSize);
 
+      db.collection('projects').doc(currentProjectPath).get().then((snapshot) => {
+        projectTitle = snapshot.data().projectID;
+        $("#projectTitle").empty().append("Project #" + projectTitle)
+        $("#previewProjectTitle").empty().append("Project #" + projectTitle)
+      })
+
       // Shows transcribing process
       // Redirect the user to project preview if end of project has been reached
       if (userProgress < projectSize) {
@@ -77,7 +82,7 @@ function loadProgress() {
         $("#startProject").removeClass("d-none");
 
       } else if (currentFile == 'transcribe.html') {
-        db.collection("projects").doc(currentProjectPath).collection("users").doc("kGlrZAGj4y5INSPFmiqM").set({
+        db.collection("projects").doc(currentProjectPath).collection("users").doc("kGlrZAGj4y5INSPFmiqM").update({
           completed: true
         });
         window.location.assign("transcribe_preview.html");
@@ -142,6 +147,7 @@ if (currentFile == 'transcribe.html') {
   // Update progress in Firebase
   function updateProgress() {
     db.collection("projects").doc(currentProjectPath).collection("users").doc("kGlrZAGj4y5INSPFmiqM").set({
+      completed: false,
       progress: userProgress + 1
     });
 
@@ -163,9 +169,17 @@ if (currentFile == 'transcribe.html') {
 /*
 * --------------------------------------------------
 * Shows available projects on the user dashboard
+* and on the transcribe overview page
 * --------------------------------------------------
 */
 
+// Count the amount of projects and display
+db.collection('projects').get().then(snap => {
+  window.totalProjects = snap.size;
+  $("#totalProjects").empty().append('<i class="fe fe-clipboard"></i> ' + totalProjects);
+});
+
+// DOM list where all projects are added to
 const projectsList = document.querySelector('#projectsList');
 
 // Create element and render projects
@@ -182,7 +196,8 @@ function renderProjects(doc){
   projectsList.before(group);
 
   $("#" + 'project_' + doc.id).append("<div class=''><div>Project #" + projectID + "</div><div id='previewTotal' class='text-muted'>100 documents / <span class='badge badge-secondary'>500 points</span></div></div>");
-  $("#" + 'project_' + doc.id).append("<div class='ml-auto'><a id= '" + doc.id + "'class='btn btn-rijks'>Continue project</a></div>");
+  // $("#" + 'project_' + doc.id).append("<div class='ml-auto'><a id= '" + doc.id + "'class='btn btn-rijks'>Continue project</a></div>");
+  $("#" + 'project_' + doc.id).append("<div class='ml-auto'><button id= '" + doc.id + "'class='btn btn-rijks'>Continue project</button></div>");
 
 
   document.getElementById(doc.id).addEventListener("click", redirectUser);
@@ -193,33 +208,15 @@ function renderProjects(doc){
     }).then(function() {
       window.location.assign("transcribe_preview.html");
     });
-    console.log(doc.id);
 
   }
 
 }
 
-if (currentFile == 'dashboard.html') {
+if (currentFile == 'dashboard.html' || currentFile == 'transcribe_overview.html') {
   db.collection('projects').limit(10).get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
       renderProjects(doc)
     })
   })
 };
-
-
-/*
-* --------------------------------------------------
-* Redirects user to dynamic project
-* --------------------------------------------------
-*/
-
-
-// if (currentFile == 'dashboard.html') {
-//   document.getElementById(doc.id).addEventListener("click", redirectUser);
-//
-//   function redirectUser() {
-//     console.log(doc.id);
-//   }
-//
-// };
