@@ -13,11 +13,7 @@ db.collection('projects').onSnapshot((querySnapshot) => {
   querySnapshot.forEach((doc) => {
     currentProjectPath.push(doc.id);
   });
-  // Get ID of last project
-  // window.currentProject = allProjects[allProjects.length - 1]
 });
-
-// console.log(currentProjectPath);
 
 
 /*
@@ -42,10 +38,7 @@ obj.on('drop', function(e) {
   e.preventDefault();
   var files = e.originalEvent.dataTransfer.files;
 
-  // Hier nog een functie met een 'weet je het zeker?
-  // Dan handleFileUpload in die functie in de ja condition
-
-  // Send dropped files to Firebase
+  // Send dropped files handler function
   handleFileUpload(files, obj);
 });
 
@@ -54,11 +47,13 @@ $(document).on('dragenter', function(e) {
   e.stopPropagation();
   e.preventDefault();
 });
+// Highlight the dropzone when files are hovered over the upload box
 $(document).on('dragover', function(e) {
   e.stopPropagation();
   e.preventDefault();
   obj.css('border', '2px dotted #0B85A1');
 });
+// Prevent default handling when files are dropped inside the upload box
 $(document).on('drop', function(e) {
   e.stopPropagation();
   e.preventDefault();
@@ -70,17 +65,18 @@ $('#drop-zone-file').on('change', function() {
   handleFileUpload(files, obj);
 });
 
+// Handles uploading the submitted files
 function handleFileUpload(files, obj) {
 
   // Generate random string, used to create folder name
   window.name = generateRandomString(20);
 
-  console.log('In uploadrij: ' + files.length);
-
+  // For every file in queue, upload it to Firebase
   for (var i = 0; i < files.length; i++) {
     var fd = new FormData();
     fd.append('file', files[i]);
 
+    // Pass parameters so it can be submitted to Firebase Storage
     fireBaseFileUpload({
       'file': files[i],
       'path': 'upload_' + name
@@ -91,18 +87,13 @@ function handleFileUpload(files, obj) {
           $("#drop-zone").css('background-color', '#c8dfcd');
           $("#uploader").css('background-color', '#d55140');
           // progress update to view here
-        }
-        if (data.downloadURL) {
-          // $("#drop-caption").empty().append("Files successfully uploaded!")
-          // update done
-          // download URL here "data.downloadURL"
-        }
-      } else {
+        } else {
         console.log(data.error + ' Firebase file upload error');
       }
     });
   }
 
+  // Get the previous project ID and update it
   db.collection('admin').doc('stats').get().then((snapshot) => {
     window.currentProject = snapshot.data().lastCreated;
   }).then(function() {
@@ -114,7 +105,6 @@ function handleFileUpload(files, obj) {
     db.collection("projects").doc(writeID).set({
       projectID: currentProject + 1
     });
-    console.log(currentProject);
   });
 
 };
@@ -123,11 +113,11 @@ window.listURL = [];
 
 function fireBaseFileUpload(parameters, callBackData) {
 
-  // expected parameters to start storage upload
+  // Expected parameters to start storage upload
   var file = parameters.file;
   var path = parameters.path;
 
-  // Debugging
+  // Defines the path of the path which is later used to obtain the downloadURL
   var uploadPath = ('upload_' + name + '/' + file.name);
 
   //just some error check
@@ -184,9 +174,7 @@ function fireBaseFileUpload(parameters, callBackData) {
   }, function() {
     storageRefDefault.child(uploadPath).getDownloadURL().then(function(url) {
       listURL.push(url);
-      console.log(listURL);
       var test = listURL[listURL.length - 1];
-      console.log(test);
       createProject(url);
     });
     var downloadURL = uploadFile.snapshot.downloadURL;
@@ -225,20 +213,16 @@ function formatBytes(bytes, decimals) {
 // Create a new project on upload
 function createProject(previewURL) {
 
-  // Listen for form submit
+  // Creates the documents inside a Firebase Storage projects collection
   if (currentFile == 'new_project.html') {
-
     db.collection('admin').doc('stats').get().then((snapshot) => {
       window.currentProject = snapshot.data().lastCreated;
     }).then(function() {
-      // console.log('oud ' + currentProject);
       currentProjectGood = "" + currentProject + "";
       db.collection("projects").doc(currentProjectGood).collection("documents").doc(generateRandomString(20)).set({
         image: previewURL
       });
-
     });
-
   };
 
 };
