@@ -165,15 +165,25 @@ function renderProjects(doc){
   let projectID = doc.data().projectID;
 
   group.setAttribute('class', 'list-group list-group-flush');
-  item.setAttribute('id', doc.id);
+  item.setAttribute('id', 'project_' + doc.id);
   item.setAttribute('class', 'list-group-item d-flex align-items-center');
 
   group.append(item);
   projectsList.before(group);
 
-  $("#" + doc.id).append("<div class=''><div>Project #" + projectID + "</div><div id='previewTotal' class='text-muted'>100 documents / <span class='badge badge-secondary'>500 points</span></div></div>");
-  $("#" + doc.id).append("<div class='ml-auto'><a href='transcribe_preview.html' class='btn btn-rijks'>Continue project</a></div>");
-  console.log(projectSize);
+  $("#" + 'project_' + doc.id).append("<div class=''><div>Project #" + projectID + "</div><div id='previewTotal' class='text-muted'>100 documents / <span class='badge badge-secondary'>500 points</span></div></div>");
+  $("#" + 'project_' + doc.id).append("<div class='ml-auto'><a id= '" + doc.id + "'class='btn btn-rijks'>Continue project</a></div>");
+
+
+  document.getElementById(doc.id).addEventListener("click", redirectUser);
+
+  function redirectUser() {
+    db.collection("admin").doc("stats").update({
+      projectClicked: parseInt(doc.id)
+    })
+    console.log(doc.id);
+  }
+
 }
 
 if (currentFile == 'dashboard.html') {
@@ -183,3 +193,20 @@ if (currentFile == 'dashboard.html') {
     })
   })
 };
+
+
+/*
+* --------------------------------------------------
+* Redirects user to dynamic project
+* --------------------------------------------------
+*/
+
+
+// if (currentFile == 'dashboard.html') {
+//   document.getElementById(doc.id).addEventListener("click", redirectUser);
+//
+//   function redirectUser() {
+//     console.log(doc.id);
+//   }
+//
+// };
