@@ -87,8 +87,11 @@ function handleFileUpload(files, obj) {
           $("#drop-zone").css('background-color', '#c8dfcd');
           $("#uploader").css('background-color', '#d55140');
           // progress update to view here
+        } if (data.downloadURL) {
+          // $("#drop-caption").empty().append("Files successfully uploaded!")
         } else {
-        console.log(data.error + ' Firebase file upload error');
+          console.log(data.error + ' Firebase file upload error');
+        }
       }
     });
   }

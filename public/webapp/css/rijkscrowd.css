@@ -182,6 +182,15 @@ h2, h3 {
   padding-top: 0.5em;
 }
 
+.pagination-rijks {
+  margin-bottom: 0rem;
+  color:#d55140;
+}
+
+.page-link-rijks {
+  color: #d55140;
+}
+
 /* TRANSCRIBE COMPONENTS
 -------------------------------------------------- */
 .sizemessage {

@@ -169,15 +169,15 @@ function renderProjects(doc){
   item.setAttribute('class', 'list-group-item d-flex align-items-center');
 
   group.append(item);
-  projectsList.append(group);
+  projectsList.before(group);
 
-  $("#" + doc.id).append("<div class=''><div>Project #" + projectID + "</div><div class='text-muted'>100 documents / <span class='badge badge-secondary'>500 points</span></div></div>");
+  $("#" + doc.id).append("<div class=''><div>Project #" + projectID + "</div><div id='previewTotal' class='text-muted'>100 documents / <span class='badge badge-secondary'>500 points</span></div></div>");
   $("#" + doc.id).append("<div class='ml-auto'><a href='transcribe_preview.html' class='btn btn-rijks'>Continue project</a></div>");
   console.log(projectSize);
 }
 
 if (currentFile == 'dashboard.html') {
-  db.collection('projects').get().then((snapshot) => {
+  db.collection('projects').limit(4).get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
       renderProjects(doc)
     })
