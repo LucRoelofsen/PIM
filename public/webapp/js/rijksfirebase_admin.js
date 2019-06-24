@@ -104,15 +104,17 @@ function handleFileUpload(files, obj) {
   }
 
   db.collection('admin').doc('stats').get().then((snapshot) => {
-    window.currentProject = snapshot.data().current;
+    window.currentProject = snapshot.data().lastCreated;
   }).then(function() {
     db.collection("admin").doc("stats").update({
-      current: currentProject + 1
+      lastCreated: currentProject + 1
     });
-    writeID = "" + currentProject + "";
+    currentProjectReal = currentProject + 1;
+    writeID = "" + currentProjectReal + "";
     db.collection("projects").doc(writeID).set({
-      projectID: currentProject
+      projectID: currentProject + 1
     });
+    console.log(currentProject);
   });
 
 };
@@ -227,7 +229,7 @@ function createProject(previewURL) {
   if (currentFile == 'new_project.html') {
 
     db.collection('admin').doc('stats').get().then((snapshot) => {
-      window.currentProject = snapshot.data().current;
+      window.currentProject = snapshot.data().lastCreated;
     }).then(function() {
       // console.log('oud ' + currentProject);
       currentProjectGood = "" + currentProject + "";
