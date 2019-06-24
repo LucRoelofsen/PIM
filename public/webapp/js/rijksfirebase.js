@@ -27,6 +27,26 @@ var currentFile = pathArray[pathArray.length-1];
 * --------------------------------------------------
 */
 
+// Get projectID
+window.currentProjectPath = [];
+db.collection('admin').onSnapshot((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    currentProjectPath.push(doc.id);
+  });
+});
+
+// var currentProjectPath = [];
+//
+// db.collection('admin').doc('stats').get().then((snapshot) => {
+//   currentProjectPath2 = snapshot.data().projectClicked;
+// }).then(function() {
+//   console.log('in: ' + currentProjectPath2);
+//   currentProjectPath += currentProjectPath2;
+//   console.log('in2: ' + currentProjectPath);
+// });
+
+console.log(currentProjectPath);
+
 // Listen for real-time changes
 db.collection('projects').doc('1').collection('users').onSnapshot(function() { loadProgress(); } );
 
