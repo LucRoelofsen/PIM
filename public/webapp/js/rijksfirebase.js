@@ -28,47 +28,37 @@ var currentFile = pathArray[pathArray.length-1];
 */
 
 // Get projectID
-window.currentProjectPath = [];
-db.collection('admin').onSnapshot((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    currentProjectPath.push(doc.id);
+var currentProjectPath = [];
+
+db.collection('admin').doc('stats').get().then((snapshot) => {
+  currentProjectPath2 = snapshot.data().projectClicked;
+}).then(function() {
+  currentProjectPath += currentProjectPath2;
+}).then(function() {
+  console.log('deze ' + currentProjectPath);
+  db.collection('projects').doc(currentProjectPath).collection('users').onSnapshot(function() { loadProgress(currentProjectPath); } );
+
+  // Get document name for the preview screen
+  window.currentDocPath = [];
+  db.collection('projects').doc(currentProjectPath).collection('documents').onSnapshot((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      currentDocPath.push(doc.id);
+    });
   });
-});
 
-// var currentProjectPath = [];
-//
-// db.collection('admin').doc('stats').get().then((snapshot) => {
-//   currentProjectPath2 = snapshot.data().projectClicked;
-// }).then(function() {
-//   console.log('in: ' + currentProjectPath2);
-//   currentProjectPath += currentProjectPath2;
-//   console.log('in2: ' + currentProjectPath);
-// });
-
-console.log(currentProjectPath);
-
-// Listen for real-time changes
-db.collection('projects').doc('1').collection('users').onSnapshot(function() { loadProgress(); } );
-
-// Get document name for the preview screen
-window.currentDocPath = [];
-db.collection('projects').doc('1').collection('documents').onSnapshot((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    currentDocPath.push(doc.id);
+  // Count the amount of documents in the project
+  db.collection('projects').doc(currentProjectPath).collection('documents').get().then(snap => {
+    window.projectSize = snap.size;
   });
-});
 
-// Count the amount of documents in the project
-db.collection('projects').doc('1').collection('documents').get().then(snap => {
-  window.projectSize = snap.size;
 });
 
 // Get current transcribing progress and show corresponding data
 function loadProgress() {
-  db.collection('projects').doc('1').collection('users').get().then((snapshot) => {
+  db.collection('projects').doc(currentProjectPath).collection('users').get().then((snapshot) => {
     window.userProgress = snapshot.docs[0].data().progress;
   }).then(function() {
-    db.collection('projects').doc('1').collection('documents').get().then((snapshot) => {
+    db.collection('projects').doc(currentProjectPath).collection('documents').get().then((snapshot) => {
 
       var docNumber = userProgress + 1;
       var showProgress = (userProgress / projectSize) * 100
@@ -87,7 +77,7 @@ function loadProgress() {
         $("#startProject").removeClass("d-none");
 
       } else if (currentFile == 'transcribe.html') {
-        db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").update({
+        db.collection("projects").doc(currentProjectPath).collection("users").doc("kGlrZAGj4y5INSPFmiqM").set({
           completed: true
         });
         window.location.assign("transcribe_preview.html");
@@ -139,7 +129,7 @@ if (currentFile == 'transcribe.html') {
 
   // Save data to Firebase
   function saveSubmission(title, keywordsubject, keywordperson, doctype, date, author) {
-    db.collection("projects").doc("1").collection("documents").doc(currentDocPath[userProgress]).collection("submissions").doc("1").update({
+    db.collection("projects").doc(currentProjectPath).collection("documents").doc(currentDocPath[userProgress]).collection("submissions").doc("1").set({
       title: title,
       keywordsubject: keywordsubject,
       keywordperson: keywordperson,
@@ -151,7 +141,7 @@ if (currentFile == 'transcribe.html') {
 
   // Update progress in Firebase
   function updateProgress() {
-    db.collection("projects").doc("1").collection("users").doc("kGlrZAGj4y5INSPFmiqM").update({
+    db.collection("projects").doc(currentProjectPath).collection("users").doc("kGlrZAGj4y5INSPFmiqM").set({
       progress: userProgress + 1
     });
 
@@ -200,14 +190,17 @@ function renderProjects(doc){
   function redirectUser() {
     db.collection("admin").doc("stats").update({
       projectClicked: parseInt(doc.id)
-    })
+    }).then(function() {
+      window.location.assign("transcribe_preview.html");
+    });
     console.log(doc.id);
+
   }
 
 }
 
 if (currentFile == 'dashboard.html') {
-  db.collection('projects').limit(4).get().then((snapshot) => {
+  db.collection('projects').limit(10).get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
       renderProjects(doc)
     })

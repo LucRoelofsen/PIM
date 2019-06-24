@@ -225,7 +225,13 @@ function createProject(previewURL) {
       db.collection("projects").doc(currentProjectGood).collection("documents").doc(generateRandomString(20)).set({
         image: previewURL
       });
+      db.collection("projects").doc(currentProjectGood).collection("users").doc("kGlrZAGj4y5INSPFmiqM").set({
+        completed: false,
+        progress: 0
+      })
     });
+
+
   };
 
 };
