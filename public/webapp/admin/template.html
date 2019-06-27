@@ -24,7 +24,7 @@
 
     <div class="collapse navbar-collapse" id="navbarDashboard">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="dashboard.html">Home<i class="fe fe-home float-right"></i></a>
         </li>
         <li class="nav-item dropdown">
@@ -32,19 +32,26 @@
             Projects<i class="fe fe-edit float-right"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="nav_projects">
-            <a class="dropdown-item" href="manage_projects.html">Manage projects</a>
+            <a class="dropdown-item" href="#">Statistics</a>
+            <a class="dropdown-item" href="#">Manage Projects</a>
             <a class="dropdown-item" href="new_project.html">New project</a>
           </div>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="users.html">Users<i class="fe fe-users float-right"></i></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="nav_users" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Users<i class="fe fe-users float-right"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="nav_users">
+            <a class="dropdown-item" href="#">Statistics</a>
+            <a class="dropdown-item" href="#">Manage Users</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Settings<i class="fe fe-settings float-right"></i></a>
         </li>
       </ul>
       <span class="navbar-text">
-        <a class="btn btn-secondary my-2 my-sm-0" href="login.html">Log out</button>
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Log out</button>
       </span>
     </div>
   </nav>
@@ -52,43 +59,56 @@
   <main role="main">
 
     <div class="container">
-      <!-- Example row of columns -->
-      <div class="row editting">
-        <div class="col-md-12">
-          <h3>Edit profile</h3>
+
+      <!-- Top content row -->
+      <div class="row entry">
+        <div class="col-md-5">
+          <h3>My dashboard</h3>
+        </div>
+        <div class="col-md-3">
+          <div class="card stats-card">
+            <div class="card-body">
+              <h3 class="d-inline"><i class="fe fe-clipboard"></i> 5</h3><p class="lead d-inline"> projects</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card stats-card">
+            <div class="card-body">
+              <h3 class="d-inline"><i class="fe fe-arrow-up-right"></i> 1500</h3><p class="lead d-inline"> forms today</p>
+            </div>
+          </div>
         </div>
       </div>
-        <div class="row">
-          <div class="col-sm-12 col-md-5 col-lg-3">
-            <img src="../img/avatar.jpg" alt="avatar" class="avatar">
-            <a href="#" class="btn-font avi">Change avatar</a>
-          </div>
-          <div class="col-md-7">
-            <form class="col-sm-12 col-md-8 col-lg-3 edittingform" method="post">
-              <div class="form-group btn-font">
-                First name
-                <input type="text" class="form-control btn-font" value="Bob">
-              </div>
-              <div class="form-group btn-font">
-                Last name
-                <input type="text" class="form-control btn-font" value="Pietersen">
-              </div>
-              <div class="form-group btn-font">
-                Email adress
-                <input type="text" class="form-control btn-font" value="bobpietersen2110@gmail.com">
-              </div>
-              <div>
-              <button class="btn btn-rijks btn-lg btn-block btn-font" type="submit">Edit</button>
-              </div>
-              <div class="editlink">
-              <a href="users.html" class="btn-font ">Back to users page</a>
-              </div>
-            </form>
-          </div>
+
+      <!-- Middle row -->
+      <div class="row">
+        <div class="col-md-6">
+
         </div>
-        <hr class="featurette-divider">
-    </div>
-    </main>
+
+        <div class="col-md-6">
+
+        </div>
+      </div>
+
+      <!-- Third row -->
+      <div class="row featurette entry">
+        <div class="col-md-6">
+
+        </div>
+
+        <div class="col-md-6">
+
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+    </div> <!-- /container -->
+
+  </main>
+
   <footer class="container">
     <p class="lead pb-5" style="font-size: 1rem;">RijksCrowd © 2019. All rights reserved.</p>
   </footer>
@@ -96,6 +116,7 @@
   <!-- Javascript -->
   <script src="../js/bootstrap.js"></script>
   <script src="../js/rijkscrowd.js"></script>
+
 
 </body>
 </html>
